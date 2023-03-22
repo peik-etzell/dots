@@ -1,0 +1,6 @@
+2022.10.27 17:07:21 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/peik/dotfiles/files/config/nvim/.metals/lsp.trace.json or /home/peik/.cache/metals/lsp.trace.json[0m
+2022.10.27 17:07:22 INFO  logging to file /home/peik/dotfiles/.metals/metals.log[0m
+2022.10.27 17:10:15 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/peik/dotfiles/files/config/nvim/.metals/lsp.trace.json or /home/peik/.cache/metals/lsp.trace.json[0m
+2022.10.27 17:10:16 INFO  logging to file /home/peik/dotfiles/.metals/metals.log[0m
+2022.10.27 17:29:14 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/peik/dotfiles/files/config/nvim/.metals/lsp.trace.json or /home/peik/.cache/metals/lsp.trace.json[0m
+2022.10.27 17:29:15 INFO  logging to file /home/peik/dotfiles/.metals/metals.log[0m
