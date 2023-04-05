@@ -25,6 +25,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		init = function()
+			require("github-theme").setup()
 			require("lualine").setup({
 				options = {
 					icons_enabled = true,
@@ -67,12 +68,7 @@ return {
 			})
 		end,
 		dependencies = {
-			{
-				"projekt0n/github-nvim-theme",
-				init = function()
-					require("github-theme").setup()
-				end,
-			},
+			{ "projekt0n/github-nvim-theme" },
 		},
 	},
 }
