@@ -130,7 +130,7 @@ return {
 							{ "gi", vim.lsp.buf.implementation },
 							{ "<leader>rn", vim.lsp.buf.rename },
 							{ "<leader>rr", vim.lsp.buf.references },
-							{ "<leader>i", vim.diagnostic.open_float({ border = "single" }) },
+							{ "<C-k>", ':lua vim.diagnostic.open_float({ border = "rounded" })<CR>' },
 						},
 					},
 				},

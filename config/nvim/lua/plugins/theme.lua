@@ -15,7 +15,7 @@ return {
 		end,
 	},
 	{ "ellisonleao/gruvbox.nvim", enabled = false },
-	{ "catppuccin/nvim", enabled = false },
+	{ "catppuccin/nvim",          enabled = false },
 	{
 		"lewis6991/gitsigns.nvim",
 		init = function()
@@ -25,9 +25,14 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		init = function()
-			require("github-theme").setup()
+			require("github-theme").setup({
+				dark_float = true,
+				function_style = "italic",
+				theme_style = "light",
+			})
 			require("lualine").setup({
 				options = {
+					theme = 'auto',
 					icons_enabled = true,
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },

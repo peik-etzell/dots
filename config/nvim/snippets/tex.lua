@@ -1,12 +1,12 @@
 return {
 	-- inline math mode
-	s({ trig = ";math" }, {
+	s({ trig = "\\math" }, {
 		t("\\("),
 		i(1),
 		t("\\)"),
 	}),
 	s({
-		trig = ";emph",
+		trig = "\\emph",
 	}, {
 		t("\\emph{"),
 		i(1),

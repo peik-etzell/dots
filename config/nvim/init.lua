@@ -14,15 +14,21 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins", { change_detection = { notify = false } })
-
-require("keymaps")
+require("lazy").setup("plugins", {
+	ui = { border = "rounded" },
+	change_detection = { notify = false },
+})
 
 vim.filetype.add({
 	extension = {
 		scad = "openscad",
 	},
 })
+
+vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {})
+
+-- Resize nvim splits when whole window resizes
+vim.api.nvim_create_autocmd({ "VimResized" }, { pattern = { "*" }, command = "wincmd =" })
 
 local set = vim.opt
 local let = vim.g
@@ -51,8 +57,4 @@ highlight Folded guibg=black guifg=lightgreen
 ]])
 
 set.updatetime = 300
-
 set.clipboard = "unnamedplus"
-
--- Resize nvim splits when whole window resizes
-vim.api.nvim_create_autocmd({ "VimResized" }, { pattern = { "*" }, command = "wincmd =" })
