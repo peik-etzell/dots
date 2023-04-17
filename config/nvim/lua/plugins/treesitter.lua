@@ -20,6 +20,7 @@ return {
 				"help",
 				"html",
 				"json",
+				"jsonc",
 				"latex",
 				"lua",
 				"luadoc",
