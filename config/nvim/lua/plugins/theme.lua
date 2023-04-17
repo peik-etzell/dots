@@ -1,5 +1,15 @@
 return {
 	{
+		"projekt0n/github-nvim-theme",
+		init = function()
+			vim.cmd("colorscheme github_dark")
+		end,
+		branch = "0.0.x",
+		priority = 1000,
+	},
+	{ "ellisonleao/gruvbox.nvim" },
+	{ "catppuccin/nvim" },
+	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
 			require("nvim-web-devicons").setup({
@@ -14,8 +24,6 @@ return {
 			require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true })
 		end,
 	},
-	{ "ellisonleao/gruvbox.nvim", enabled = false },
-	{ "catppuccin/nvim",          enabled = false },
 	{
 		"lewis6991/gitsigns.nvim",
 		init = function()
@@ -25,14 +33,9 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		init = function()
-			require("github-theme").setup({
-				dark_float = true,
-				function_style = "italic",
-				theme_style = "light",
-			})
 			require("lualine").setup({
 				options = {
-					theme = 'auto',
+					theme = "auto",
 					icons_enabled = true,
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
@@ -72,8 +75,5 @@ return {
 				extensions = {},
 			})
 		end,
-		dependencies = {
-			{ "projekt0n/github-nvim-theme" },
-		},
 	},
 }

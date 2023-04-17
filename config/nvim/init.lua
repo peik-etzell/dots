@@ -44,6 +44,8 @@ set.undofile = true
 set.wrap = false -- Overridden in ft=tex
 set.list = true
 set.listchars:append("eol:↴")
+set.spelllang = "en_us"
+set.spell = true
 
 -- suckless.vim
 let.suckless_tmap = 1

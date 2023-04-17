@@ -3,7 +3,13 @@ return {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		tag = "0.1.1",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+			},
+		},
 		config = function()
 			require("telescope").setup({
 				defaults = {
@@ -25,11 +31,22 @@ return {
 						"%.eps",
 					},
 				},
+				-- extensions = {
+				-- 	fzf = {
+				-- 		fuzzy = true,
+				-- 		override_generic_sorter = true,
+				-- 		override_file_sorter = true,
+				-- 		case_mode = "smart_case",
+				-- 	},
+				-- },
 			})
+			require("telescope").load_extension("fzf")
 		end,
 		keys = {
 			{ "<leader>f", ":Telescope find_files<CR>" },
 			{ "<leader>g", ":Telescope live_grep<CR>" },
+			{ "<leader>c", ":Telescope colorscheme<CR>" },
+			{ "<C-/>", ":Telescope current_buffer_fuzzy_find<CR>" },
 		},
 	},
 }
