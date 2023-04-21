@@ -75,7 +75,7 @@ return {
 						sources = {
 							builtins.formatting.stylua,
 							builtins.formatting.clang_format.with({
-								extra_args = { "--style", "{IndentWidth: 4}" },
+								-- extra_args = { "--style", "{IndentWidth: 4}" },
 							}),
 							builtins.formatting.uncrustify,
 							builtins.formatting.prettierd,
