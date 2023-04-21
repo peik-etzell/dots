@@ -1,96 +1,89 @@
-@import "mocha.css";
-
 * {
-    font-family: SF Mono, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 20px;
+  font-family: SF Mono, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
 }
 
 window#waybar {
-    /* background: rgba(43, 48, 59, 0.5); */
-	background: black;
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: white;
+  background: rgba(43, 48, 59, 0.5);
+  /* background: black; */
+  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+  color: white;
 }
 
 tooltip {
-    background: rgba(43, 48, 59, 0.5);
-    border: 1px solid rgba(100, 114, 125, 0.5);
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
 }
 tooltip label {
-    color: white;
+  color: white;
 }
 
 #workspaces button {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    background: transparent;
-    color: white;
-    border-radius: 12;
-	margin: 5px;
+  padding: 6px;
+  background: transparent;
+  border-radius: 0px;
+  color: white;
 }
 
 #workspaces button.active {
-    background: #64727D;
-	color: yellow;
+  background: #64727d;
+  color: yellow;
 }
 
 #workspaces button.visible {
-    background: #64727D;
-	color: yellow;
+  background: #64727d;
+  color: yellow;
 }
 
 #workspaces button.focused {
-    background: orangered;
-	color: black;
+  /* background: orangered; */
+  background: white;
+  color: black;
 }
 
 #workspaces button.urgent {
-    background: red;
-	color: black;
+  background: red;
+  color: black;
 }
 /* #mode, #clock, #battery #network { */
 /* } */
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+  background: #64727d;
 }
 
 #clock {
-	font-size: 10pt;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	font-weight: 800;
-    /* background-color: #64727D; */
-    padding: 7px;
+  font-size: 10pt;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 800;
+  /* background-color: #64727D; */
+  padding: 5px;
 }
 
 #battery {
-    background-color: #64727D;
-    /* color: yellow; */
-    padding: 5px;
-	margin: 5px;
-	border-radius: 12;
+  background-color: transparent;
+  padding: 6px;
 }
 
 #battery.charging {
-    color: white;
-    background-color: #26A65B;
+  color: white;
+  background-color: #26a65b;
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
 }
 
 #battery.warning:not(.charging) {
-    background: #f53c3c;
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background: #f53c3c;
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
-

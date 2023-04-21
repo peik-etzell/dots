@@ -7,8 +7,7 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
-				build =
-				"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 			},
 		},
 		config = function()
@@ -51,7 +50,11 @@ return {
 			{ "<leader>f", ":Telescope find_files<CR>" },
 			{ "<leader>g", ":Telescope live_grep<CR>" },
 			{ "<leader>c", ":Telescope colorscheme<CR>" },
-			{ "<C-/>",     ":Telescope current_buffer_fuzzy_find<CR>" },
+			{ "<leader>lr", ":Telescope lsp_references<CR>" },
+			{ "<leader>lk", ":Telescope diagnostics<CR>" },
+			{ "<leader>li", ":Telescope lsp_implementations<CR>" },
+			{ "<leader>ld", ":Telescope lsp_definitions<CR>" },
+			{ "<C-/>", ":Telescope current_buffer_fuzzy_find<CR>" },
 		},
 	},
 }
