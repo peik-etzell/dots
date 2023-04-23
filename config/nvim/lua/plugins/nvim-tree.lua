@@ -1,9 +1,16 @@
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
-		-- init => always exec on startup
 		init = function()
-			require("nvim-tree").setup()
+			require("nvim-tree").setup({
+				update_focused_file = {
+					enable = true,
+				},
+				renderer = {
+					add_trailing = true,
+					group_empty = true,
+				},
+			})
 			local function open_nvim_tree(data)
 				-- buffer is a real file on the disk
 				local real_file = vim.fn.filereadable(data.file) == 1
@@ -24,7 +31,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
 			{ "<leader><Esc>", ":NvimTreeFocus<CR>" },
-			{ "<C-b>", ":NvimTreeToggle<CR>" },
+			{ "<C-b>",         ":NvimTreeToggle<CR>" },
 		},
 	},
 }

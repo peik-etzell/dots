@@ -130,3 +130,10 @@ eslint
 utils
 rsuite
 lsp
+thunar
+wofi
+systemd
+WAYLAND
+XDG
+dbus
+tmp

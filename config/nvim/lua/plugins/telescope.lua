@@ -9,6 +9,10 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 			},
+			{
+				"bi0ha2ard/telescope-ros.nvim",
+			},
+			{ "nvim-telescope/telescope-dap.nvim" },
 		},
 		config = function()
 			require("telescope").setup({
@@ -20,10 +24,10 @@ return {
 						prompt_position = "top",
 						mirror = true,
 						anchor = "N",
-						height = 0.9,
-						width = 0.7,
+						height = 0.90,
+						width = 0.95,
 						horizontal = {
-							preview_width = 0.6,
+							preview_width = 0.5,
 						},
 					},
 					path_display = { "truncate" },
@@ -35,26 +39,23 @@ return {
 						"log/",
 					},
 				},
-				-- extensions = {
-				-- 	fzf = {
-				-- 		fuzzy = true,
-				-- 		override_generic_sorter = true,
-				-- 		override_file_sorter = true,
-				-- 		case_mode = "smart_case",
-				-- 	},
-				-- },
 			})
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("ros")
 		end,
 		keys = {
 			{ "<leader>f", ":Telescope find_files<CR>" },
-			{ "<leader>g", ":Telescope live_grep<CR>" },
+			{ "<leader>g", ":lua require('telescope.builtin').live_grep({ layout_strategy = 'vertical' })<CR>" },
 			{ "<leader>c", ":Telescope colorscheme<CR>" },
 			{ "<leader>lr", ":Telescope lsp_references<CR>" },
 			{ "<leader>lk", ":Telescope diagnostics<CR>" },
 			{ "<leader>li", ":Telescope lsp_implementations<CR>" },
 			{ "<leader>ld", ":Telescope lsp_definitions<CR>" },
-			{ "<C-/>", ":Telescope current_buffer_fuzzy_find<CR>" },
+			{ "<leader>t", ":Telescope<CR>" },
+			{
+				"<C-/>",
+				":lua require('telescope.builtin').current_buffer_fuzzy_find({ layout_strategy = 'vertical' })<CR>",
+			},
 		},
 	},
 }

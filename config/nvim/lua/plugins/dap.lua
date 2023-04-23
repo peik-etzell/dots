@@ -5,7 +5,11 @@ return {
 		dependencies = {
 			{
 				"mfussenegger/nvim-dap",
+				dependencies = {
+					{ "nvim-telescope/telescope.nvim" },
+				},
 				config = function()
+					require("telescope").load_extension("dap")
 					local dap = require("dap")
 					local adapters = dap.adapters
 					local configurations = dap.configurations
@@ -150,13 +154,12 @@ return {
 			})
 		end,
 		keys = {
-			{ "<F4>",  ":lua require('dapui').toggle()<CR>" },
-			{ "<F5>",  ":lua require('dap').continue()<CR>" },
-			{ "<F9>",  ":lua require('dap').toggle_breakpoint()<CR>" },
+			{ "<F4>", ":lua require('dapui').toggle()<CR>" },
+			{ "<F5>", ":lua require('dap').continue()<CR>" },
+			{ "<F9>", ":lua require('dap').toggle_breakpoint()<CR>" },
 			{ "<F10>", ":lua require('dap').step_over()<CR>" },
 			{ "<F11>", ":lua require('dap').step_into()<CR>" },
-			{ "<S-<F11>>",
-				":lua require('dap').step_into()<CR>" },
+			{ "<S-<F11>>", ":lua require('dap').step_into()<CR>" },
 		},
 	},
 }
