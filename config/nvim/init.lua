@@ -38,7 +38,6 @@ local let = vim.g
 
 set.number = true
 set.relativenumber = false
-set.shell = "zsh"
 set.tabstop = 4
 set.shiftwidth = 4
 set.expandtab = false
@@ -47,8 +46,12 @@ set.undofile = true
 set.wrap = false -- Overridden in ft=tex
 set.list = true
 set.listchars:append("eol:↴")
+
+-- Spell
 set.spelllang = "en_us"
 set.spell = true
+-- Exclude terminal from spellchecking
+vim.api.nvim_create_autocmd({ "TermOpen" }, { pattern = { "*" }, command = "setlocal nospell" })
 
 -- suckless.vim
 let.suckless_tmap = 1
