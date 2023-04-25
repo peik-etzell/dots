@@ -5,8 +5,8 @@ return {
 		config = true,
 		opts = {},
 		keys = {
-			{ "<A-CR>", ":ToggleTerm<CR>" },
-			{ "<A-CR>", ":ToggleTerm<CR>", "i" },
+			{ "<A-CR>", ":ToggleTerm<CR>", "n" },
+			{ "<A-CR>", "<C-\\><C-n>:ToggleTerm<CR>", mode = "t" },
 		},
 	},
 }
