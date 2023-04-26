@@ -33,6 +33,21 @@ vim.filetype.add({
 	},
 })
 
+local esc = "<ESC>"
+local termesc = "<C-\\><C-n>"
+-- Bind esc to same function in terminal
+vim.api.nvim_set_keymap("t", esc, termesc, {})
+-- Set movement keymaps
+local movement_keys = { "h", "j", "k", "l" }
+for _, key in pairs(movement_keys) do
+	local lhs = "<A-" .. key .. ">"
+	local rhs = "<C-w>" .. key
+	local opts = {}
+	vim.api.nvim_set_keymap("n", lhs, rhs, opts)
+	vim.api.nvim_set_keymap("i", lhs, esc .. rhs, opts)
+	vim.api.nvim_set_keymap("t", lhs, termesc .. rhs, opts)
+end
+
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {})
 
 -- Resize nvim splits when whole window resizes

@@ -10,12 +10,11 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		lazy = true,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"neovim/nvim-lspconfig",
 		},
-		init = function()
+		config = function()
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 			})

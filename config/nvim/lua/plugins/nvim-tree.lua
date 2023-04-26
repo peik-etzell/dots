@@ -9,6 +9,10 @@ return {
 				renderer = {
 					add_trailing = true,
 					group_empty = true,
+					icons = {
+						git_placement = "after",
+						modified_placement = "after",
+					},
 				},
 			})
 			local function open_nvim_tree(data)
@@ -31,7 +35,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
 			{ "<leader><Esc>", ":NvimTreeFocus<CR>" },
-			{ "<C-b>",         ":NvimTreeToggle<CR>" },
+			{ "<C-b>", ":NvimTreeToggle<CR>" },
 		},
 	},
 }

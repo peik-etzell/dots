@@ -5,8 +5,13 @@ return {
 		config = true,
 		opts = {},
 		keys = {
-			{ "<A-CR>", ":ToggleTerm<CR>", "n" },
-			{ "<A-CR>", "<C-\\><C-n>:ToggleTerm<CR>", mode = "t" },
+			{
+				"<A-CR>",
+				function()
+					require("toggleterm").toggle()
+				end,
+				mode = { "n", "i", "t" },
+			},
 		},
 	},
 }

@@ -1,6 +1,6 @@
 return {
 	"Pocco81/auto-save.nvim",
-	"fabi1cazenave/suckless.vim",
+	-- "fabi1cazenave/suckless.vim",
 	{
 		"alexghergh/nvim-tmux-navigation",
 		lazy = true,
