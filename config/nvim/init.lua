@@ -33,25 +33,26 @@ vim.filetype.add({
 	},
 })
 
-local esc = "<ESC>"
-local termesc = "<C-\\><C-n>"
--- Bind esc to same function in terminal
-vim.api.nvim_set_keymap("t", esc, termesc, {})
--- Set movement keymaps
-local movement_keys = { "h", "j", "k", "l" }
-for _, key in pairs(movement_keys) do
-	local lhs = "<A-" .. key .. ">"
-	local rhs = "<C-w>" .. key
-	local opts = {}
-	vim.api.nvim_set_keymap("n", lhs, rhs, opts)
-	vim.api.nvim_set_keymap("i", lhs, esc .. rhs, opts)
-	vim.api.nvim_set_keymap("t", lhs, termesc .. rhs, opts)
-end
-
-vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {})
-
--- Resize nvim splits when whole window resizes
-vim.api.nvim_create_autocmd({ "VimResized" }, { pattern = { "*" }, command = "wincmd =" })
+require("window-management")
+-- local esc = "<ESC>"
+-- local termesc = "<C-\\><C-n>"
+-- -- Bind esc to same function in terminal
+-- vim.api.nvim_set_keymap("t", esc, termesc, {})
+-- -- Set movement keymaps
+-- local movement_keys = { "h", "j", "k", "l" }
+-- for _, key in pairs(movement_keys) do
+-- 	local lhs = "<A-" .. key .. ">"
+-- 	local rhs = "<C-w>" .. key
+-- 	local opts = {}
+-- 	vim.api.nvim_set_keymap("n", lhs, rhs, opts)
+-- 	vim.api.nvim_set_keymap("i", lhs, esc .. rhs, opts)
+-- 	vim.api.nvim_set_keymap("t", lhs, termesc .. rhs, opts)
+-- end
+--
+-- vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {})
+--
+-- -- Resize nvim splits when whole window resizes
+-- vim.api.nvim_create_autocmd({ "VimResized" }, { pattern = { "*" }, command = "wincmd =" })
 
 local set = vim.opt
 local let = vim.g
@@ -66,6 +67,7 @@ set.undofile = true
 set.wrap = false -- Overridden in ft=tex
 set.list = true
 set.listchars:append("eol:↴")
+set.title = true
 
 -- Spell
 set.spelllang = "en_us"

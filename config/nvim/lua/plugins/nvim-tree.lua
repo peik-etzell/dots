@@ -14,6 +14,11 @@ return {
 						modified_placement = "after",
 					},
 				},
+				actions = {
+					open_file = {
+						resize_window = false,
+					},
+				},
 			})
 			local function open_nvim_tree(data)
 				-- buffer is a real file on the disk
@@ -34,7 +39,6 @@ return {
 		end,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
-			{ "<leader><Esc>", ":NvimTreeFocus<CR>" },
 			{ "<C-b>", ":NvimTreeToggle<CR>" },
 		},
 	},
