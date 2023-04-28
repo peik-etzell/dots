@@ -9,7 +9,10 @@ return {
 				enable = true,
 				disable = { "latex", "tex" },
 			},
-			indent = { enable = true, disable = { "typescript" } },
+			indent = {
+				enable = true,
+				disable = { "typescript", "c", "cpp" },
+			},
 			context_commentstring = { enable = true, enable_autocmd = false },
 			ensure_installed = {
 				"bash",
@@ -135,6 +138,7 @@ return {
 		end,
 	},
 	{
-		"windwp/nvim-ts-autotag", lazy = true
-	}
+		"windwp/nvim-ts-autotag",
+		lazy = true,
+	},
 }

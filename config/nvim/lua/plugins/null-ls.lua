@@ -8,10 +8,10 @@ return {
 			null_ls.setup({
 				sources = {
 					builtins.formatting.stylua,
-					builtins.formatting.clang_format.with({
-						-- extra_args = { "--style", "{IndentWidth: 4}" },
-					}),
-					builtins.formatting.uncrustify,
+					-- builtins.formatting.clang_format.with({
+					-- 	-- extra_args = { "--style", "{IndentWidth: 4}" },
+					-- }),
+					-- builtins.formatting.uncrustify,
 					builtins.formatting.prettierd,
 					builtins.code_actions.eslint_d,
 					builtins.code_actions.refactoring,

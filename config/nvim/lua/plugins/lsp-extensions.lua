@@ -3,6 +3,9 @@ return {
 		"p00f/clangd_extensions.nvim",
 		ft = { "c", "cpp" },
 		lazy = true,
+		config = function()
+			require("clangd_extensions").setup()
+		end,
 	},
 	{
 		"scalameta/nvim-metals",
