@@ -20,7 +20,7 @@ return {
 				"cpp",
 				"css",
 				"cuda",
-				"help",
+				"vimdoc",
 				"html",
 				"json",
 				"jsonc",
