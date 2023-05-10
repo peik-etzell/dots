@@ -39,6 +39,21 @@ return {
 					{ name = "path" },
 					-- { name = "cmdline" },
 				}),
+				sorting = {
+					comparators = {
+						cmp.config.compare.offset,
+						cmp.config.compare.exact,
+						cmp.config.compare.recently_used,
+						require("clangd_extensions.cmp_scores"),
+						cmp.config.compare.kind,
+						cmp.config.compare.sort_text,
+						cmp.config.compare.length,
+						cmp.config.compare.order,
+					},
+				},
+				window = {
+					completion = cmp.config.window.bordered(),
+				},
 			})
 		end,
 		dependencies = {
@@ -50,6 +65,7 @@ return {
 			"jose-elias-alvarez/null-ls.nvim",
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"p00f/clangd_extensions.nvim",
 		},
 	},
 }
