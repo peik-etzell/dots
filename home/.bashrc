@@ -130,6 +130,13 @@ export MOVEIT_BIN_OR_SOURCE=bin
 
 setup_script=""
 
+if [ $(ls /opt/ros/ | wc -l) == 1 ]; then
+	read -p "source ${find /opt/ros/*/setup.bash}? [Y/n] " ans
+	if [ $ans != 'n' ]; then
+		source /opt/ros/*/setup.bash
+	fi
+fi
+
 init_ros() {
 	if [ -f $setup_script ]; then
 		source $setup_script
