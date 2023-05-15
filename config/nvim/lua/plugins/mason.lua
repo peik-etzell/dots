@@ -5,6 +5,9 @@ return {
 		config = function()
 			require("mason").setup({
 				install_root_dir = vim.fn.stdpath("data") .. "/mason",
+				ui = {
+					border = "single",
+				},
 			})
 		end,
 	},
@@ -17,6 +20,17 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
+				ensure_installed = {
+					"clangd",
+					"html",
+					"yamlls",
+					"cmake",
+					"pylsp",
+					"pyright",
+					"jsonls",
+					"stylua",
+					"lua_ls",
+				},
 			})
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
