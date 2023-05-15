@@ -40,6 +40,7 @@ alias l='ls -lh'
 alias ll='ls -lh'
 alias lsa='ls -lah'
 alias wifi='nmcli dev wifi'
+alias bl='bluetoothctl'
 
 function pomo() {
     arg1=$1
