@@ -99,7 +99,7 @@ alias bashrc="$EDITOR ~/.bashrc"
 alias nvconf="cd ~/.config/nvim/ && $EDITOR"
 
 alias build="bear --append -- \
-	colcon build --symlink-install \
+	colcon build --symlink-install --mixin release ccache \
 	&& source install/setup.bash"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -130,16 +130,39 @@ export MOVEIT_BIN_OR_SOURCE=bin
 
 setup_script=""
 
-if [ $(ls /opt/ros/ | wc -l) == 1 ]; then
-	read -p "source ${find /opt/ros/*/setup.bash}? [Y/n] " ans
-	if [ $ans != 'n' ]; then
-		source /opt/ros/*/setup.bash
+present_choice() {
+	lines=$(echo "$1" | wc -l)
+	if [ "$lines" == 0 ]; then 
+		return
+	elif [ "$lines" == 1 ]; then
+		read -p "source $1? [Y/n] " ans
+		if [ "$ans" != 'n' ]; then
+			source "$1"
+		fi
+	else
+		echo "$1" | awk '{ print NR, $0 }'
+		read -p "source? [num] " num
+		case $num in
+			''|*[!0-9]*) 
+				echo NaN ;;
+			*) 
+				line=$(echo "$1" | sed -n "${num}"p)
+				if [ -n "$line" ]; then
+					source "$line"
+				fi ;;
+		esac
 	fi
+}
+
+present_choice "$(find /opt/ros/*/setup.bash)"
+if [ -n "$ROS_DISTRO" ]; then
+	present_choice "$(find . -wholename '*/install/setup.bash' 2>/dev/null)"
 fi
 
+
 init_ros() {
-	if [ -f $setup_script ]; then
-		source $setup_script
+	if [ -f "$setup_script" ]; then
+		source "$setup_script"
 	else
 		echo "ROS2 not found at ${setup_script}"
 		return
@@ -192,6 +215,15 @@ humble() {
 }
 
 # . "$HOME/.cargo/env"
+
+ubuntu_ccache_cc="/usr/lib/ccache/gcc"
+ubuntu_ccache_cxx="/usr/lib/ccache/g++"
+if [ -f ${ubuntu_ccache_cc} ]; then
+	export CC=${ubuntu_ccache_cc}
+fi
+if [ -f ${ubuntu_ccache_cxx} ]; then
+	export CXX=${ubuntu_ccache_cxx}
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
