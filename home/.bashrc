@@ -98,9 +98,13 @@ alias diff="diff -y --width=$COLUMNS --suppress-common-lines --side-by-side"
 alias bashrc="$EDITOR ~/.bashrc"
 alias nvconf="cd ~/.config/nvim/ && $EDITOR"
 
-alias build="bear --append -- \
-	colcon build --symlink-install --mixin release ccache \
-	&& source install/setup.bash"
+build () {
+	bear --append -- \
+		colcon build --symlink-install --mixin release ccache "$@"
+	source install/setup.bash
+}
+
+alias depinstall="sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
