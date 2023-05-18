@@ -6,7 +6,7 @@ return {
 			require("mason").setup({
 				install_root_dir = vim.fn.stdpath("data") .. "/mason",
 				ui = {
-					border = "single",
+					border = "rounded",
 				},
 			})
 		end,
@@ -22,14 +22,22 @@ return {
 				automatic_installation = true,
 				ensure_installed = {
 					"clangd",
+					"cpplint",
+					"codelldb",
+					"cmake",
+					"cmakelint",
 					"html",
 					"yamlls",
-					"cmake",
+					"lemminx", -- xmlformatter
 					"pylsp",
 					"pyright",
 					"jsonls",
-					"stylua",
 					"lua_ls",
+					"bashls",
+					"shfmt",
+					"beautysh",
+					"docker_compose_language_service",
+					"dockerls",
 				},
 			})
 			require("mason-lspconfig").setup_handlers({
