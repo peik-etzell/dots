@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export GPG_TTY=$(tty)
 # ZSH_THEME="pegeh"
 
 HYPHEN_INSENSITIVE="true"
