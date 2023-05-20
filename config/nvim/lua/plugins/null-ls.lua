@@ -17,8 +17,10 @@ return {
 					builtins.code_actions.eslint_d,
 					builtins.code_actions.refactoring,
 					-- builtins.diagnostics.clang_check,
-					-- builtins.diagnostics.cpplint,
-					-- builtins.diagnostics.cppcheck,
+					-- builtins.diagnostics.cpplint, -- .clang_format not supported
+					builtins.diagnostics.cppcheck.with({
+						extra_args = { "--language=c++", "--std=c++17" },
+					}),
 					-- builtins.diagnostics.eslint,
 					-- builtins.completion.spell,
 					-- builtins.code_actions.proselint,
