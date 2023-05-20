@@ -12,6 +12,7 @@ return {
 
 			local luasnip = require("luasnip")
 			local cmp = require("cmp")
+			local cmp_buffer = require("cmp_buffer")
 
 			cmp.setup({
 				snippet = {
@@ -41,6 +42,9 @@ return {
 				}),
 				sorting = {
 					comparators = {
+						function(...)
+							return cmp_buffer:compare_locality(...)
+						end,
 						cmp.config.compare.offset,
 						cmp.config.compare.exact,
 						cmp.config.compare.recently_used,
