@@ -3,6 +3,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
+			autotag = {
+				enable = true,
+			},
 			sync_install = false,
 			auto_install = true,
 			highlight = {
@@ -39,6 +42,7 @@ return {
 				"typescript",
 				"vim",
 				"yaml",
+				"gitcommit",
 			},
 			incremental_selection = {
 				enable = true,
@@ -53,6 +57,9 @@ return {
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
@@ -136,9 +143,5 @@ return {
 				separator = nil,
 			})
 		end,
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		lazy = true,
 	},
 }
