@@ -134,6 +134,7 @@ export MOVEIT_BIN_OR_SOURCE=bin
 
 setup_script=""
 
+choice=
 present_choice() {
 	lines=$(echo "$1" | wc -l)
 	if [ "$lines" == 0 ]; then 
@@ -142,83 +143,50 @@ present_choice() {
 		read -p "source $1? [Y/n] " ans
 		if [ "$ans" != 'n' ]; then
 			source "$1"
+			echo "Sourced ${ROS_DISTRO}"
+			choice=$1
+		else
+			echo "Sourced nothing"
+			choice=""
 		fi
 	else
+		# First column index, second is setup.bash files
 		echo "$1" | awk '{ print NR, $0 }'
 		read -p "source? [num] " num
 		case $num in
-			''|*[!0-9]*) 
-				echo NaN ;;
-			*) 
+			[0-9]) 
 				line=$(echo "$1" | sed -n "${num}"p)
 				if [ -n "$line" ]; then
 					source "$line"
-				fi ;;
+					choice=$line
+				else
+					choice=""
+				fi 
+				;;
+			*)
+				choice=""
+				;;
 		esac
 	fi
 }
 
 present_choice "$(find /opt/ros/*/setup.bash)"
-if [ -n "$ROS_DISTRO" ]; then
+if [ -n "$choice" ]; then
 	present_choice "$(find . -wholename '*/install/setup.bash' 2>/dev/null)"
-fi
-
-
-init_ros() {
-	if [ -f "$setup_script" ]; then
-		source "$setup_script"
-	else
-		echo "ROS2 not found at ${setup_script}"
-		return
+	if [ -n "$choice" ]; then
+		echo ""
 	fi
 
-	if [ -z "${ROS_DISTRO}" ]; then
-		echo "ROS2 sourcing error"
-		return
-	fi
-
-	# Source Moveit source if it exists
-	moveit_source_setup_file="${HOME}/moveit2_${ROS_DISTRO}_ws/install/setup.bash"
-	if [ -f $moveit_source_setup_file ]; then
-		read -p "Binary or source Moveit install? (b/s): " ans
-		case $ans in
-			s*)
-				MOVEIT_BIN_OR_SOURCE=source
-				source ${moveit_source_setup_file}
-				;;
-			*)
-				echo "Didn't understand, default to bin"
-				;;
-		esac
-	fi
-
-	export PS1=${PS1/@\\h/" \[\033[00m\][${ROS_DISTRO}-${MOVEIT_BIN_OR_SOURCE}]"}
-
-	# set domain ID
 	export ROS_DOMAIN_ID=0
 
-
-	# source colcon_cd
+	# colcon_cd
 	source /usr/share/colcon_cd/function/colcon_cd.sh
 	export _colcon_cd_root="/opt/ros/${ROS_DISTRO}/"
 
 	# autocomplete for colcon
 	source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
-}
+fi
 
-# ROS2 Rolling Ridley
-rolling() {
-	setup_script=/opt/ros/rolling/setup.bash
-	init_ros $@
-}
-
-# ROS2 Humble Hawksbill
-humble() {
-	setup_script=/opt/ros/humble/setup.bash
-	init_ros $@
-}
-
-# . "$HOME/.cargo/env"
 
 ubuntu_ccache_cc="/usr/lib/ccache/gcc"
 ubuntu_ccache_cxx="/usr/lib/ccache/g++"
@@ -229,6 +197,6 @@ if [ -f ${ubuntu_ccache_cxx} ]; then
 	export CXX=${ubuntu_ccache_cxx}
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
