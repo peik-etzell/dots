@@ -14,10 +14,13 @@ return {
 					local adapters = dap.adapters
 					local configurations = dap.configurations
 
+					local pkg = require("mason-core.package")
+
 					-- ADAPTERS
 					adapters.lldb = {
 						type = "executable",
-						command = "/usr/bin/lldb-vscode",
+						-- command = "/usr/bin/lldb-vscode",
+						command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
 						name = "lldb",
 					}
 					adapters.cppdbg = {
@@ -49,6 +52,13 @@ return {
 						end,
 						cwd = "${workspaceFolder}",
 						stopOnEntry = true,
+						setupCommands = {
+							{
+								text = "-enable-pretty-printing",
+								description = "enable pretty printing",
+								ignoreFailures = false,
+							},
+						},
 					}
 
 					local gdbserverConfig = {
@@ -64,9 +74,9 @@ return {
 						end,
 					}
 
-					configurations.cpp = { lldbConfig, cpptoolsConfig, gdbserverConfig }
-					configurations.c = { lldbConfig, cpptoolsConfig, gdbserverConfig }
-					configurations.rust = { lldbConfig, cpptoolsConfig, gdbserverConfig }
+					configurations.cpp = { cpptoolsConfig, gdbserverConfig }
+					configurations.c = { cpptoolsConfig, gdbserverConfig }
+					configurations.rust = { cpptoolsConfig, gdbserverConfig }
 				end,
 			},
 			{ "mfussenegger/nvim-dap-python", lazy = true },
@@ -154,12 +164,12 @@ return {
 			})
 		end,
 		keys = {
-			{ "<F4>", ":lua require('dapui').toggle()<CR>" },
-			{ "<F5>", ":lua require('dap').continue()<CR>" },
-			{ "<F9>", ":lua require('dap').toggle_breakpoint()<CR>" },
-			{ "<F10>", ":lua require('dap').step_over()<CR>" },
-			{ "<F11>", ":lua require('dap').step_into()<CR>" },
-			{ "<S-<F11>>", ":lua require('dap').step_into()<CR>" },
+			{ "<F4>",      ":lua require('dapui').toggle()<CR>",          desc = "Toggle UI" },
+			{ "<F5>",      ":lua require('dap').continue()<CR>",          desc = "Continue" },
+			{ "<F9>",      ":lua require('dap').toggle_breakpoint()<CR>", desc = "Toggle breakpoint " },
+			{ "<F10>",     ":lua require('dap').step_over()<CR>",         desc = "Step over" },
+			{ "<F11>",     ":lua require('dap').step_into()<CR>",         desc = "Step into" },
+			{ "<S-<F11>>", ":lua require('dap').step_out()<CR>",          desc = "Step out" },
 		},
 	},
 }

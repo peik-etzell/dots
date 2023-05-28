@@ -6,5 +6,8 @@ return {
 		keys = {
 			{ "<C-.>", ":CodeActionMenu<CR>" },
 		},
+		config = function()
+			vim.g.code_action_menu_window_border = "rounded"
+		end,
 	},
 }

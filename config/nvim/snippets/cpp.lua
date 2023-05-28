@@ -14,4 +14,12 @@ return {
 	}, {
 		t(");"),
 	}),
+	s({
+		dscr = "Main function boilerplate",
+		trig = "int main()",
+	}, {
+		t({ "int main(int argc, char** argv) {", "\t" }),
+		i(1),
+		t({ "", "\treturn 0;", "}" }),
+	}),
 }
