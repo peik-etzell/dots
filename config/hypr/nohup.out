@@ -1,0 +1,329 @@
+[LOG] Welcome to hyprpaper!
+built from commit  ()
+[LOG] Cleaned old hyprpaper preloads (1), removing 33.2MB
+[LOG] Preloaded target /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg in 96.30ms -> Pixel size: [6016, 6016]
+[LOG] hyprpaper socket started at /tmp/hypr/f27873a6f06dc2f87600edb890f3c38298bfb55f_1684999068/.hyprpaper.sock (fd: 4)
+[LOG] Buffer created for target /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg, Shared Memory usage: 33.2MB
+[LOG] Total SM usage for all buffers: 33.2MB
+[LOG] configure for DP-3
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] configure for DP-2
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] configure for DP-3
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] configure for DP-2
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] configure for DP-2
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-2
+[LOG] configure for DP-3
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
+[LOG] configure for DP-3
+[LOG] configure for DP-2
+[LOG] Image data for DP-3: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 8138cdf0
+[LOG] Image data for DP-2: /home/peik/Pictures/wallpapers/macOS_like/ventura_dark.jpg at [0.00, -1316.00], scale: 0.64 (original image size: [6016, 6016])
+[LOG] Submitting viewport dest size 3840x2160 for 81391370
+[LOG] handlePreferredScale: 1.00 for 56398138cdf0
+[LOG] handlePreferredScale: 1.00 for 563981391370
