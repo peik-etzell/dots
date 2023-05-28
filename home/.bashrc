@@ -100,7 +100,7 @@ alias nvconf="cd ~/.config/nvim/ && $EDITOR"
 
 build () {
 	bear --append -- \
-		colcon build --symlink-install --mixin release ccache "$@"
+		colcon build --symlink-install --mixin ccache "$@"
 	source install/setup.bash
 }
 
