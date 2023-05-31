@@ -172,7 +172,7 @@ present_choice() {
 
 present_choice "$(find /opt/ros/*/setup.bash)"
 if [ -n "$choice" ]; then
-	present_choice "$(find . -wholename '*/install/setup.bash' 2>/dev/null)"
+	present_choice "$(find . -O3 -wholename '*/install/setup.bash' 2>/dev/null)"
 	if [ -n "$choice" ]; then
 		echo ""
 	fi
