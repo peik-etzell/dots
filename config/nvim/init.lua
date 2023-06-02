@@ -50,7 +50,7 @@ set.title = true
 
 -- Spell
 set.spelllang = "en_us"
-set.spell = true
+set.spell = false
 -- Exclude terminal from spellchecking
 vim.api.nvim_create_autocmd({ "TermOpen" }, { pattern = { "*" }, command = "setlocal nospell" })
 
