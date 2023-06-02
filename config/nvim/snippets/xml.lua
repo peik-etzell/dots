@@ -15,10 +15,10 @@ return {
 		i(1),
 		t(">"),
 		i(2),
-		t("<"),
+		t("</"),
 		f(function(args)
 			return args[1]
 		end, ai[1]),
-		t("/>"),
+		t(">"),
 	}),
 }

@@ -16,4 +16,7 @@ return {
 	s({ trig = "peik" }, {
 		t("Peik Etzell"),
 	}),
+	s({ trig = ";)" }, {
+		t(");"),
+	}),
 }
