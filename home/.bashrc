@@ -98,6 +98,15 @@ alias diff="diff -y --width=$COLUMNS --suppress-common-lines --side-by-side"
 alias bashrc="$EDITOR ~/.bashrc"
 alias nvconf="cd ~/.config/nvim/ && $EDITOR"
 
+# git
+alias status='git status'
+alias add='git add'
+alias commit='git commit'
+alias stash='git stash'
+alias pull='git pull'
+alias push='git push'
+alias gdiff='git diff'
+
 build () {
 	bear --append -- \
 		colcon build --symlink-install --mixin ccache "$@"

@@ -43,6 +43,15 @@ alias lsa='ls -lah'
 alias wifi='nmcli dev wifi'
 alias bl='bluetoothctl'
 
+# git
+alias status='git status'
+alias add='git add'
+alias commit='git commit'
+alias stash='git stash'
+alias pull='git pull'
+alias push='git push'
+alias gdiff='git diff'
+
 function pomo() {
     arg1=$1
     shift
