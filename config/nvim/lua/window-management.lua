@@ -33,5 +33,11 @@ set_keymap("t", "<A-C-l>", termesc .. "3<C-w>>i", {})
 set_keymap("n", "<A-C-h>", "3<C-w><", {})
 set_keymap("t", "<A-C-h>", termesc .. "3<C-w><i", {})
 
+set_keymap("n", "<C-u>", "<C-u>zz", {})
+set_keymap("n", "<C-d>", "<C-d>zz", {})
+
+set_keymap("n", "<Up>", "kzz", {})
+set_keymap("n", "<Down>", "jzz", {})
+
 -- Resize nvim splits when whole window resizes
 vim.api.nvim_create_autocmd({ "VimResized" }, { pattern = { "*" }, command = "wincmd =" })
