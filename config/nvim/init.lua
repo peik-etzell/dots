@@ -1,7 +1,9 @@
 vim.g.do_filetype_lua = 1
 vim.filetype.add({
 	extension = {
+		repos = "yaml",
 		rviz = "yaml",
+		scad = "openscad",
 	},
 })
 
@@ -25,12 +27,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
 	ui = { border = "rounded" },
 	change_detection = { notify = false },
-})
-
-vim.filetype.add({
-	extension = {
-		scad = "openscad",
-	},
 })
 
 local set = vim.opt
