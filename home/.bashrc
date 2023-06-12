@@ -61,7 +61,26 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
+	RED="$(tput setaf 1)"
+	GREEN="$(tput setaf 2)"
+	YELLOW="$(tput setaf 3)"
+	BLUE="$(tput setaf 4)"
+	RESET="$(tput sgr0)"
+	ros_env()
+	{
+		if [[ -v ROS_DISTRO ]]; then
+			local str="${RESET}[${YELLOW}"
+			if [[ -v COLCON_PREFIX_PATH ]]; then
+				local ws_path=${COLCON_PREFIX_PATH%/install}
+				local ws_name=${ws_path##*/}
+				str="${str}${ROS_DISTRO}:${ws_name}"
+			else
+				str="${str}${ROS_DISTRO}"
+			fi
+			echo "${str}${RESET}]"
+		fi
+	}
+    PS1='${debian_chroot:+($debian_chroot)}${GREEN}\u $(ros_env) : ${BLUE}\w${RESET}\n\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\n\$ '
 fi
@@ -89,6 +108,7 @@ alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lsa='ls -lah'
+alias upgrade='sudo apt update && sudo apt upgrade -y'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -108,9 +128,10 @@ alias push='git push'
 alias gdiff='git diff'
 
 build () {
-	bear --append -- \
-		colcon build --symlink-install --mixin ccache "$@"
-	source install/setup.bash
+	if  bear --append -- \
+		colcon build --symlink-install --mixin ccache "$@"; then
+		source install/setup.bash
+	fi
 }
 
 alias depinstall="sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y"
@@ -141,9 +162,6 @@ fi
 
 export MOVEIT_BIN_OR_SOURCE=bin
 
-setup_script=""
-
-choice=
 present_choice() {
 	lines=$(echo "$1" | wc -l)
 	if [ "$lines" == 0 ]; then 
@@ -152,11 +170,6 @@ present_choice() {
 		read -p "source $1? [Y/n] " ans
 		if [ "$ans" != 'n' ]; then
 			source "$1"
-			echo "Sourced ${ROS_DISTRO}"
-			choice=$1
-		else
-			echo "Sourced nothing"
-			choice=""
 		fi
 	else
 		# First column index, second is setup.bash files
@@ -167,23 +180,23 @@ present_choice() {
 				line=$(echo "$1" | sed -n "${num}"p)
 				if [ -n "$line" ]; then
 					source "$line"
-					choice=$line
-				else
-					choice=""
 				fi 
 				;;
 			*)
-				choice=""
 				;;
 		esac
 	fi
 }
 
-present_choice "$(find /opt/ros/*/setup.bash)"
-if [ -n "$choice" ]; then
-	present_choice "$(find . -O3 -wholename '*/install/setup.bash' 2>/dev/null)"
-	if [ -n "$choice" ]; then
-		echo ""
+if [ ! -v AMENT_PREFIX_PATH ]; then
+	present_choice "$(find /opt/ros/*/setup.bash)"
+fi
+
+if [ -v ROS_DISTRO ]; then
+	present_choice "$(find . -wholename '*/install/setup.bash' 2>/dev/null)"
+	workspace=${COLCON_PREFIX_PATH%/install}
+	if [ -d "${workspace}" ]; then
+		cd "${workspace}"
 	fi
 
 	export ROS_DOMAIN_ID=0
