@@ -3,7 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		init = function()
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded",
+				border = vim.g.border,
 			})
 		end,
 		config = function()
@@ -21,9 +21,9 @@ return {
 					})
 				end,
 			},
-			{ "K", vim.lsp.buf.hover },
+			{ "K",          vim.lsp.buf.hover },
 			{ "<leader>rn", vim.lsp.buf.rename },
-			{ "<C-k>", ':lua vim.diagnostic.open_float({ border = "rounded" })<CR>' },
+			{ "<C-k>",      ":lua vim.diagnostic.open_float({ border = vim.g.border })<CR>" },
 		},
 	},
 }

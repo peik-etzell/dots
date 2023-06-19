@@ -1,10 +1,10 @@
 vim.g.do_filetype_lua = 1
 vim.filetype.add({
-	extension = {
-		repos = "yaml",
-		rviz = "yaml",
-		scad = "openscad",
-	},
+    extension = {
+        repos = "yaml",
+        rviz = "yaml",
+        scad = "openscad",
+    },
 })
 
 vim.g.mapleader = " "
@@ -12,31 +12,16 @@ vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins", {
-	ui = { border = "rounded" },
-	change_detection = { notify = false },
-})
-
 local set = vim.opt
 local let = vim.g
+
+let.border = "rounded"
 
 set.number = true
 set.relativenumber = false
 set.tabstop = 4
 set.shiftwidth = 4
-set.expandtab = false
+set.expandtab = true
 set.timeoutlen = 500
 set.undofile = true
 set.wrap = false -- Overridden in ft=tex
@@ -50,9 +35,6 @@ set.spell = false
 -- Exclude terminal from spellchecking
 vim.api.nvim_create_autocmd({ "TermOpen" }, { pattern = { "*" }, command = "setlocal nospell" })
 
--- suckless.vim
-let.suckless_tmap = 1
-
 -- folding
 set.foldlevel = 99
 set.foldmethod = "expr"
@@ -65,3 +47,22 @@ set.updatetime = 300
 set.clipboard = "unnamedplus"
 
 require("window-management")
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins", {
+    ui = { border = vim.g.border },
+    change_detection = { notify = false },
+})
+
+require("theme")

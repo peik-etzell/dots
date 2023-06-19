@@ -6,7 +6,7 @@ return {
 			require("mason").setup({
 				install_root_dir = vim.fn.stdpath("data") .. "/mason",
 				ui = {
-					border = "rounded",
+					border = vim.g.border,
 				},
 			})
 		end,

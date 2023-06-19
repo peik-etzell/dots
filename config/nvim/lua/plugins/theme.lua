@@ -1,14 +1,14 @@
 return {
 	{
 		"projekt0n/github-nvim-theme",
-		init = function()
-			vim.cmd("colorscheme github_dark")
-		end,
+		-- init = function()
+		-- 	vim.cmd("colorscheme github_dark")
+		-- end,
 		branch = "0.0.x",
 		priority = 1000,
 	},
-	{ "ellisonleao/gruvbox.nvim" },
-	{ "catppuccin/nvim" },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
+	{ "catppuccin/nvim",          priority = 1000 },
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
@@ -20,6 +20,7 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		enabled = false,
 		config = function()
 			require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true })
 		end,

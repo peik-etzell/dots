@@ -7,7 +7,7 @@ return {
 			{ "<C-.>", ":CodeActionMenu<CR>" },
 		},
 		config = function()
-			vim.g.code_action_menu_window_border = "rounded"
+			vim.g.code_action_menu_window_border = vim.g.border
 		end,
 	},
 }
