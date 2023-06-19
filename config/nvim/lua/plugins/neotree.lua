@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		enabled = false,
 		config = function()
 			require("neo-tree").setup({
 				close_if_last_window = true,
@@ -19,7 +20,7 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		keys = {
-			{ "<C-b>", ":NeoTreeShowToggle<CR>" },
+			-- { "<C-b>", ":NeoTreeShowToggle<CR>" },
 		},
 	},
 }
