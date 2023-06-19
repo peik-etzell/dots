@@ -1,6 +1,15 @@
 export PATH="/usr/lib/ccache:$PATH"
 export EDITOR="/usr/bin/nvim"
 export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA
+if [[ -f "$HOME/.config/syncthing/config.xml" ]]; then
+	if  ! $(pgrep -x syncthing >/dev/null); then
+		echo "Starting syncthing"
+		daemonize /usr/bin/syncthing --no-browser
+	else
+		echo "Synthing is running"
+	fi
+fi
+
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -163,7 +172,7 @@ fi
 export MOVEIT_BIN_OR_SOURCE=bin
 
 present_choice() {
-	lines=$(echo "$1" | wc -l)
+	lines=$(echo "$1" | grep -v ^$ | wc -l)
 	if [ "$lines" == 0 ]; then 
 		return
 	elif [ "$lines" == 1 ]; then
@@ -193,7 +202,7 @@ if [ ! -v AMENT_PREFIX_PATH ]; then
 fi
 
 if [ -v ROS_DISTRO ]; then
-	present_choice "$(find . -wholename '*/install/setup.bash' 2>/dev/null)"
+	present_choice "$(find . -wholename '*/install/setup.bash' -maxdepth 2 2>/dev/null)"
 	workspace=${COLCON_PREFIX_PATH%/install}
 	if [ -d "${workspace}" ]; then
 		cd "${workspace}"
