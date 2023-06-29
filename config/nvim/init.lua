@@ -28,6 +28,7 @@ set.wrap = false -- Overridden in ft=tex
 set.list = true
 set.listchars:append("eol:↴")
 set.title = true
+set.cursorline = true
 
 -- Spell
 set.spelllang = "en_us"
