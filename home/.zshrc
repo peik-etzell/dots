@@ -76,6 +76,13 @@ function pomo() {
     done
 }
 
+function p () {
+  proj_dir=${PROJ_DIR:-~/REPOS}
+  project=$(ls $proj_dir | sk --prompt "Switch to project: ")
+  [ -n "$project" ] && cd $proj_dir/$project
+}
+
+
 # use kitty kittens
 if [[ "$TERM" == "xterm-kitty" ]]; then
 	alias icat="kitty +kitten icat" 
@@ -83,28 +90,7 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
 	alias diff="kitty +kitten diff"
 fi
 
-# export ROS_DISTRO=humble
-#
-# if [[ -f "/opt/ros/$ROS_DISTRO/setup.zsh" && "$XDG_DESKTOP_TYPE" != "wayland" ]]; then
-# 	echo "Sourced ROS2 $ROS_DISTRO"
-# 	export ROS_DOMAIN_ID=42
-# 	source  /opt/ros/$ROS_DISTRO/setup.zsh
-# fi
-
-
-path+=('/home/peik/.cargo/bin')
-path+=('/home/peik/.local/bin')
+path+=("${HOME}/.cargo/bin")
+path+=("${HOME}/.local/bin")
 # prepend
 path=('/usr/lib/ccache/bin' $path)
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/home/peik/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/peik/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/home/peik/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/peik/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# source /usr/share/nvm/init-nvm.sh

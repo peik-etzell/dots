@@ -8,7 +8,7 @@ return {
 		priority = 1000,
 	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
-	{ "catppuccin/nvim",          priority = 1000 },
+	{ "catppuccin/nvim", priority = 1000 },
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
@@ -56,8 +56,13 @@ return {
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics" },
-					-- lualine_c = { "filename" },
-					lualine_c = { "%f" },
+					lualine_c = {
+						{
+							"filename",
+							path = 0, -- just the filename
+						},
+					},
+					-- lualine_c = {},
 					lualine_x = { "encoding", "fileformat", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
@@ -71,7 +76,19 @@ return {
 					lualine_z = {},
 				},
 				tabline = {},
-				winbar = {},
+				winbar = {
+					lualine_a = {
+						{
+							"filename",
+							path = 1, -- just the filename
+						},
+					},
+					lualine_b = {},
+					lualine_c = {},
+					lualine_x = {},
+					lualine_y = {},
+					lualine_z = {},
+				},
 				inactive_winbar = {},
 				extensions = {},
 			})
