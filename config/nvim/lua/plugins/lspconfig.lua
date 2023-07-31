@@ -8,6 +8,7 @@ return {
 		end,
 		config = function()
 			require("lspconfig").util.default_config.on_attach = function() end
+            require('lspconfig.ui.windows').default_options.border = vim.g.border
 		end,
 		keys = {
 			{
