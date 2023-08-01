@@ -1,0 +1,17 @@
+default partial alphanumeric_keys
+xkb_symbols "us" {
+    name[Group1]="English (Custom)";
+
+    include "us(basic)"
+    include "kpdl(comma)"
+    include "level3(caps_switch)"
+
+    key <AD08> { [  i,               I,                Home,                  Home                  ] };
+    key <AD09> { [  o,               O,                End,                   End                   ] };
+
+    key <AC06> { [  h,               H,                Left,                  Left                  ] };
+    key <AC07> { [  j,               J,                Down,                  Down                  ] };
+    key <AC08> { [  k,               K,                Up,                    Up                    ] };
+    key <AC09> { [  l,               L,                Right,                 Right                 ] };
+
+};
