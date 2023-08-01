@@ -137,8 +137,10 @@ alias push='git push'
 alias gdiff='git diff'
 
 build () {
-	if  bear --append -- \
-		colcon build --symlink-install --mixin ccache "$@"; then
+    
+	if PATH=$(echo $PATH | sed 's/:\/mnt\/c[^:]*//g; s/::/:/g; s/:$//') \
+        bear --append -- \
+		colcon build --symlink-install --mixin ccache ninja "$@"; then
 		source install/setup.bash
 	fi
 }
@@ -169,7 +171,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export MOVEIT_BIN_OR_SOURCE=bin
+autosourced=0
 
 present_choice() {
 	lines=$(echo "$1" | grep -v ^$ | wc -l)
@@ -179,6 +181,7 @@ present_choice() {
 		read -p "source $1? [Y/n] " ans
 		if [ "$ans" != 'n' ]; then
 			source "$1"
+            autosourced=1
 		fi
 	else
 		# First column index, second is setup.bash files
@@ -189,6 +192,7 @@ present_choice() {
 				line=$(echo "$1" | sed -n "${num}"p)
 				if [ -n "$line" ]; then
 					source "$line"
+                    autosourced=1
 				fi 
 				;;
 			*)
@@ -203,8 +207,9 @@ fi
 
 if [ -v ROS_DISTRO ]; then
 	present_choice "$(find . -wholename '*/install/setup.bash' -maxdepth 2 2>/dev/null)"
-	workspace=${COLCON_PREFIX_PATH%/install}
-	if [ -d "${workspace}" ]; then
+    last_prefix=${COLCON_PREFIX_PATH##*:}
+	workspace=${last_prefix%/install}
+	if  [[ autosourced == 1 && -d "${workspace}" ]]; then
 		cd "${workspace}"
 	fi
 
