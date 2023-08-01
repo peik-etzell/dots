@@ -4,7 +4,21 @@ return {
 		ft = { "c", "cpp" },
 		lazy = true,
 		config = function()
-			require("clangd_extensions").setup()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.offsetEncoding = "utf-16"
+			require("clangd_extensions").setup({
+				server = {
+					-- options to pass to nvim-lspconfig
+					-- i.e. the arguments to require("lspconfig").clangd.setup({})
+					capabilities = capabilities,
+				},
+				extensions = {
+					autoSetHints = false,
+					inlay_hints = {
+						inline = false,
+					},
+				},
+			})
 		end,
 	},
 	{

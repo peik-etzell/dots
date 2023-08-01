@@ -30,6 +30,11 @@ return {
 						command = vim.fn.stdpath("data")
 							.. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
 					}
+					adapters.coreclr = {
+						type = "executable",
+						command = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg/netcoredbg",
+						args = { "--interpreter=vscode" },
+					}
 
 					-- CONFIGURATIONS
 					local lldbConfig = {
@@ -77,6 +82,16 @@ return {
 					configurations.cpp = { cpptoolsConfig, gdbserverConfig }
 					configurations.c = { cpptoolsConfig, gdbserverConfig }
 					configurations.rust = { cpptoolsConfig, gdbserverConfig }
+					configurations.cs = {
+						{
+							type = "coreclr",
+							name = "Launch netcoredbg",
+							request = "launch",
+							program = function()
+								return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+							end,
+						},
+					}
 				end,
 			},
 			{ "mfussenegger/nvim-dap-python", lazy = true },
@@ -164,12 +179,12 @@ return {
 			})
 		end,
 		keys = {
-			{ "<F4>",      ":lua require('dapui').toggle()<CR>",          desc = "Toggle UI" },
-			{ "<F5>",      ":lua require('dap').continue()<CR>",          desc = "Continue" },
-			{ "<F9>",      ":lua require('dap').toggle_breakpoint()<CR>", desc = "Toggle breakpoint " },
-			{ "<F10>",     ":lua require('dap').step_over()<CR>",         desc = "Step over" },
-			{ "<F11>",     ":lua require('dap').step_into()<CR>",         desc = "Step into" },
-			{ "<S-<F11>>", ":lua require('dap').step_out()<CR>",          desc = "Step out" },
+			{ "<F4>", ":lua require('dapui').toggle()<CR>", desc = "Toggle UI" },
+			{ "<F5>", ":lua require('dap').continue()<CR>", desc = "Continue" },
+			{ "<F9>", ":lua require('dap').toggle_breakpoint()<CR>", desc = "Toggle breakpoint " },
+			{ "<F10>", ":lua require('dap').step_over()<CR>", desc = "Step over" },
+			{ "<F11>", ":lua require('dap').step_into()<CR>", desc = "Step into" },
+			{ "<S-<F11>>", ":lua require('dap').step_out()<CR>", desc = "Step out" },
 		},
 	},
 }

@@ -145,7 +145,7 @@ build () {
 	fi
 }
 
-alias depinstall="sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y"
+alias depinstall="sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y -r"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
