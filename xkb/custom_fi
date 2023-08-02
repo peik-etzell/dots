@@ -1,0 +1,21 @@
+default partial alphanumeric_keys
+xkb_symbols "fi" {
+    name[Group1]="Finnish (Custom)";
+
+    include "us(basic)"
+    include "kpdl(comma)"
+    include "level3(caps_switch)"
+
+    key <AD08> { [  i,               I,                Home,                  Home                  ] };
+    key <AD09> { [  o,               O,                End,                   End                   ] };
+
+    key <AC06> { [  h,               H,                Left,                  Left                  ] };
+    key <AC07> { [  j,               J,                Down,                  Down                  ] };
+    key <AC08> { [  k,               K,                Up,                    Up                    ] };
+    key <AC09> { [  l,               L,                Right,                 Right                 ] };
+
+    key <AD11> { [  aring,           Aring,            bracketleft,           braceleft             ] };
+
+    key <AC10> { [  odiaeresis,      Odiaeresis,       semicolon,             colon                 ] };
+    key <AC11> { [  adiaeresis,      Adiaeresis,       apostrophe,            quotedbl              ] };
+};
