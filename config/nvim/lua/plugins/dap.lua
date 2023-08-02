@@ -5,21 +5,15 @@ return {
 		dependencies = {
 			{
 				"mfussenegger/nvim-dap",
-				dependencies = {
-					{ "nvim-telescope/telescope.nvim" },
-				},
 				config = function()
-					require("telescope").load_extension("dap")
 					local dap = require("dap")
 					local adapters = dap.adapters
 					local configurations = dap.configurations
 
-					local pkg = require("mason-core.package")
 
 					-- ADAPTERS
 					adapters.lldb = {
 						type = "executable",
-						-- command = "/usr/bin/lldb-vscode",
 						command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
 						name = "lldb",
 					}
@@ -30,6 +24,7 @@ return {
 						command = vim.fn.stdpath("data")
 							.. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
 					}
+					-- C#
 					adapters.coreclr = {
 						type = "executable",
 						command = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg/netcoredbg",
@@ -65,7 +60,6 @@ return {
 							},
 						},
 					}
-
 					local gdbserverConfig = {
 						name = "Attach to gdbserver :1234",
 						type = "cppdbg",
@@ -77,8 +71,14 @@ return {
 						program = function()
 							return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 						end,
+						setupCommands = {
+							{
+								text = "-enable-pretty-printing",
+								description = "enable pretty printing",
+								ignoreFailures = false,
+							},
+						},
 					}
-
 					configurations.cpp = { cpptoolsConfig, gdbserverConfig }
 					configurations.c = { cpptoolsConfig, gdbserverConfig }
 					configurations.rust = { cpptoolsConfig, gdbserverConfig }

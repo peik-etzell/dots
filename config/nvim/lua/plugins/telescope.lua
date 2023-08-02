@@ -5,14 +5,20 @@ return {
 		tag = "0.1.1",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
+			"nvim-lua/plenary.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 			},
+			"bi0ha2ard/telescope-ros.nvim",
 			{
 				"bi0ha2ard/telescope-ros.nvim",
+				"nvim-telescope/telescope-dap.nvim",
+				dependencies = {
+					"mfussenegger/nvim-dap",
+					"nvim-treesitter/nvim-treesitter",
+				},
 			},
-			{ "nvim-telescope/telescope-dap.nvim" },
 		},
 		config = function()
 			require("telescope").setup({
@@ -33,21 +39,25 @@ return {
 					path_display = { "truncate" },
 					file_ignore_patterns = {
                         -- latex
+						-- latex
 						"%.ipe",
 						"%.eps",
                         -- ros
+						-- ros
 						"build/",
 						"install/",
 						"log/",
 						"logs/",
 						"devel/",
                         -- clangd
+						-- clangd
 						"compile_commands",
 					},
 				},
 			})
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("ros")
+			require("telescope").load_extension("dap")
 		end,
 		keys = {
 			{ "<leader>f", ":Telescope find_files<CR>", desc = "Find file" },

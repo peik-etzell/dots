@@ -4,7 +4,7 @@ local esc = "<ESC>"
 local termesc = "<C-\\><C-n>"
 
 -- Bind esc to same function in terminal
-set_keymap("t", esc, termesc, {})
+-- set_keymap("t", esc, termesc, {})
 -- Set movement keymaps
 local movement_keys = { "h", "j", "k", "l" }
 for _, key in pairs(movement_keys) do
