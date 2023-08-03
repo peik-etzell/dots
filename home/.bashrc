@@ -118,6 +118,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lsa='ls -lah'
 alias upgrade='sudo apt update && sudo apt upgrade -y'
+alias lz='lazygit'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -137,12 +138,26 @@ alias push='git push'
 alias gdiff='git diff'
 
 build () {
-    
-	if PATH=$(echo $PATH | sed 's/:\/mnt\/c[^:]*//g; s/::/:/g; s/:$//') \
-        bear --append -- \
-		colcon build --symlink-install --mixin ccache ninja "$@"; then
-		source install/setup.bash
-	fi
+    local type=''
+    case $1 in
+        release | rel-with-deb-info | debug)
+            type=$1
+            echo $1 > ./build-type
+            ;;
+        *)
+            if [[ -f ./build-type ]]; then
+                type=$(cat ./build-type)
+            else
+                type="release"
+            fi
+            ;;
+    esac
+    echo "Using build type $type"
+	PATH=$(echo $PATH | sed 's/:\/mnt\/c[^:]*//g; s/::/:/g; s/:$//') \
+	        # bear --append -- \
+		colcon build --symlink-install --mixin ccache ninja compile-commands $type "$@"
+
+    ln -sf ./build/compile_commands.json
 }
 
 alias depinstall="sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y -r"
