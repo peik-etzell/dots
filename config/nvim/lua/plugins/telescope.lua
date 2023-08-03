@@ -19,6 +19,36 @@ return {
 					"nvim-treesitter/nvim-treesitter",
 				},
 			},
+			{
+				"EthanJWright/vs-tasks.nvim",
+				config = function()
+					require("vstask").setup({
+						telescope_keys = {
+							split = "<CR>",
+							current = "<S-<CR>>",
+						},
+						terminal = "toggleterm",
+						term_opts = {
+							vertical = {
+								direction = "vertical",
+								size = "80",
+							},
+							horizontal = {
+								direction = "horizontal",
+								size = "10",
+							},
+							current = {
+								direction = "float",
+							},
+						},
+					})
+				end,
+				dependencies = {
+					"nvim-lua/popup.nvim",
+					"nvim-lua/plenary.nvim",
+					"nvim-telescope/telescope.nvim",
+				},
+			},
 		},
 		config = function()
 			require("telescope").setup({
@@ -38,18 +68,15 @@ return {
 					},
 					path_display = { "truncate" },
 					file_ignore_patterns = {
-                        -- latex
 						-- latex
 						"%.ipe",
 						"%.eps",
-                        -- ros
 						-- ros
 						"build/",
 						"install/",
 						"log/",
 						"logs/",
 						"devel/",
-                        -- clangd
 						-- clangd
 						"compile_commands",
 					},
@@ -58,6 +85,7 @@ return {
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("ros")
 			require("telescope").load_extension("dap")
+			require("telescope").load_extension("vstask")
 		end,
 		keys = {
 			{ "<leader>f", ":Telescope find_files<CR>", desc = "Find file" },
@@ -71,7 +99,11 @@ return {
 			{ "<leader>lk", ":Telescope diagnostics<CR>", desc = "Diagnostics" },
 			{ "<leader>li", ":Telescope lsp_implementations<CR>", desc = "Implementations" },
 			{ "<leader>ld", ":Telescope lsp_definitions<CR>", desc = "Definitions" },
-			{ "<leader>t", ":Telescope<CR>", desc = "Telescope" },
+			{ "<leader>ta", ":Telescope<CR>", desc = "Telescope" },
+			{
+				"<leader>tt",
+				":lua require('telescope').extensions.vstask.tasks()<CR>",
+			},
 			{
 				"<C-/>",
 				":lua require('telescope.builtin').current_buffer_fuzzy_find({ layout_strategy = 'vertical' })<CR>",
