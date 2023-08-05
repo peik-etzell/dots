@@ -42,6 +42,7 @@ alias ll='ls -lh'
 alias lsa='ls -lah'
 alias wifi='nmcli dev wifi'
 alias bl='bluetoothctl'
+alias lz='lazygit'
 
 # git
 alias status='git status'
