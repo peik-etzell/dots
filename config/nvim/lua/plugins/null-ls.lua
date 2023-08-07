@@ -16,8 +16,10 @@ return {
 					builtins.formatting.clang_format,
 					builtins.code_actions.eslint_d,
 					builtins.code_actions.refactoring,
-					-- builtins.diagnostics.clang_check,
-					-- builtins.diagnostics.cpplint, -- .clang_format not supported
+					builtins.diagnostics.clang_check,
+					builtins.diagnostics.cpplint.with({
+						args = { "--linelength=120" }, -- ROS
+					}),
 					builtins.diagnostics.cppcheck.with({
 						extra_args = { "--language=c++", "--std=c++17" },
 					}),
