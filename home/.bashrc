@@ -154,10 +154,10 @@ build () {
     esac
     echo "Using build type $type"
 	PATH=$(echo $PATH | sed 's/:\/mnt\/c[^:]*//g; s/::/:/g; s/:$//') \
-	        # bear --append -- \
-		colcon build --symlink-install --mixin ccache ninja compile-commands $type "$@"
+    bear --append -- \
+		colcon build --symlink-install --mixin ccache ninja mold $type $@ --build-base ./build/$type
 
-    ln -sf ./build/compile_commands.json
+    # ln -sf ./build/compile_commands.json
 }
 
 alias depinstall="sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y -r"
