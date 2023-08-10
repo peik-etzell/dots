@@ -3,6 +3,7 @@ return {
 		"p00f/clangd_extensions.nvim",
 		ft = { "c", "cpp" },
 		lazy = true,
+        commit = "707f8633b84f9b72bcf811c34d383a297a25e8a0",
 		config = function()
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.offsetEncoding = "utf-16"
