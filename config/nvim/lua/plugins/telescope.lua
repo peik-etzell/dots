@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
-		tag = "0.1.1",
+		tag = "0.1.2",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 			"nvim-lua/plenary.nvim",
@@ -10,43 +10,11 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 			},
-			"bi0ha2ard/telescope-ros.nvim",
 			{
-				"bi0ha2ard/telescope-ros.nvim",
 				"nvim-telescope/telescope-dap.nvim",
 				dependencies = {
 					"mfussenegger/nvim-dap",
 					"nvim-treesitter/nvim-treesitter",
-				},
-			},
-			{
-				"EthanJWright/vs-tasks.nvim",
-				config = function()
-					require("vstask").setup({
-						telescope_keys = {
-							split = "<CR>",
-							current = "<S-<CR>>",
-						},
-						terminal = "toggleterm",
-						term_opts = {
-							vertical = {
-								direction = "vertical",
-								size = "80",
-							},
-							horizontal = {
-								direction = "horizontal",
-								size = "10",
-							},
-							current = {
-								direction = "float",
-							},
-						},
-					})
-				end,
-				dependencies = {
-					"nvim-lua/popup.nvim",
-					"nvim-lua/plenary.nvim",
-					"nvim-telescope/telescope.nvim",
 				},
 			},
 		},
@@ -83,9 +51,7 @@ return {
 				},
 			})
 			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("ros")
 			require("telescope").load_extension("dap")
-			require("telescope").load_extension("vstask")
 		end,
 		keys = {
 			{ "<leader>f", ":Telescope find_files<CR>", desc = "Find file" },
@@ -100,10 +66,6 @@ return {
 			{ "<leader>li", ":Telescope lsp_implementations<CR>", desc = "Implementations" },
 			{ "<leader>ld", ":Telescope lsp_definitions<CR>", desc = "Definitions" },
 			{ "<leader>ta", ":Telescope<CR>", desc = "Telescope" },
-			{
-				"<leader>tt",
-				":lua require('telescope').extensions.vstask.tasks()<CR>",
-			},
 			{
 				"<C-/>",
 				":lua require('telescope.builtin').current_buffer_fuzzy_find({ layout_strategy = 'vertical' })<CR>",
