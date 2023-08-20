@@ -38,6 +38,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "nvim_lsp_signature_help" },
 					-- { name = "cmdline" },
 				}),
 				sorting = {
@@ -57,6 +58,7 @@ return {
 				},
 				window = {
 					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
 				},
 			})
 
@@ -83,6 +85,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"saadparwaiz1/cmp_luasnip",
 			"jose-elias-alvarez/null-ls.nvim",
 			"williamboman/mason.nvim",
