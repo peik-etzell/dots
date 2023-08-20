@@ -13,9 +13,9 @@ return {
 					builtins.formatting.clang_format,
 					builtins.code_actions.eslint_d,
 					builtins.code_actions.refactoring,
-					builtins.diagnostics.clang_check.with({
-						extra_args = { "-extra-arg=-std=c++17" },
-					}),
+					-- builtins.diagnostics.clang_check.with({
+					-- 	extra_args = { "-extra-arg=-std=c++17" },
+					-- }),
 					builtins.diagnostics.cpplint.with({
 						args = { "--linelength=120" }, -- ROS
 					}),
