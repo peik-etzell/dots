@@ -30,6 +30,7 @@ set.list = true
 set.listchars:append("eol:↴")
 set.title = true
 set.cursorline = true
+set.so = 10;
 
 -- Spell
 set.spelllang = "en_us"
