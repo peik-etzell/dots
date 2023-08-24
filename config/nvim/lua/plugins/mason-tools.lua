@@ -39,7 +39,6 @@ return {
                     -- Python
                     "autopep8",
                     "python-lsp-server",
-                    "pyright",
                     "debugpy",
 
                     -- Webdev
