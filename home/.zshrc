@@ -1,16 +1,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 export GPG_TTY=$(tty)
-# ZSH_THEME="pegeh"
 
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -26,23 +20,21 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export FZF_DEFAULT_COMMAND="find -L"
 
-
-alias swayconf="$EDITOR ~/.config/sway/config"
-# alias nvconf="cd $HOME/.config/nvim && $EDITOR"
-alias nvconf="$EDITOR $HOME/.config/nvim/"
-
 alias tcn='mv --force -t ~/.local/share/Trash/files/'
 
-alias open="xdg-open"
-alias rvim="sudo -E $EDITOR"
+alias o='xdg-open'
+alias e="$EDITOR"
+alias rvim='sudo -E $EDITOR'
 
 alias cat='bat'
+
 alias l='ls -lh'
 alias ll='ls -lh'
 alias lsa='ls -lah'
 alias wifi='nmcli dev wifi'
 alias bl='bluetoothctl'
 alias lz='lazygit'
+alias mkdir='mkdir -p'
 
 # git
 alias status='git status'

@@ -119,6 +119,7 @@ alias l='ls -CF'
 alias lsa='ls -lah'
 alias upgrade='sudo apt update && sudo apt upgrade -y'
 alias lz='lazygit'
+alias mkdir='mkdir -p'
 
 alias ..='cd ..'
 alias ...='cd ../..'
