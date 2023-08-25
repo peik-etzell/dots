@@ -8,9 +8,9 @@ return {
             "clojure",
             "lisp",
             "fennel",
-            "lua",
-            "python",
-            "rust",
+            -- "lua",
+            -- "python",
+            -- "rust",
         },
     },
 }
