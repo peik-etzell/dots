@@ -40,6 +40,7 @@ return {
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "cmp_nvim_r" },
+					{ name = "conjure" },
 					-- { name = "cmdline" },
 				}),
 				sorting = {
@@ -87,6 +88,7 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"PaterJason/cmp-conjure",
 			"saadparwaiz1/cmp_luasnip",
 			"jose-elias-alvarez/null-ls.nvim",
 			"williamboman/mason.nvim",
