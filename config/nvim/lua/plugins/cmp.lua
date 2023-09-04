@@ -39,6 +39,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
+					{ name = "cmp_nvim_r" },
 					-- { name = "cmdline" },
 				}),
 				sorting = {
@@ -91,6 +92,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"p00f/clangd_extensions.nvim",
+			"jalvesaq/cmp-nvim-r",
 		},
 	},
 }
