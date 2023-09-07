@@ -22,7 +22,6 @@ export FZF_DEFAULT_COMMAND="find -L"
 
 alias tcn='mv --force -t ~/.local/share/Trash/files/'
 
-alias o='xdg-open'
 alias e="$EDITOR"
 alias rvim='sudo -E $EDITOR'
 
@@ -35,6 +34,8 @@ alias wifi='nmcli dev wifi'
 alias bl='bluetoothctl'
 alias lz='lazygit'
 alias mkdir='mkdir -p'
+alias z='zathura'
+alias o='xdg-open'
 
 # git
 alias status='git status'
@@ -44,6 +45,7 @@ alias stash='git stash'
 alias pull='git pull'
 alias push='git push'
 alias gdiff='git diff'
+alias ros='~/ros2_devcontainer/start.sh'
 
 function pomo() {
     arg1=$1
