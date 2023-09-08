@@ -39,6 +39,10 @@ return {
 						-- latex
 						"%.ipe",
 						"%.eps",
+                        "%.fls",
+                        "%.fdb_latexmk",
+                        "%.synctex.gz",
+                        "%.aux",
 						-- ros
 						"build/",
 						"install/",

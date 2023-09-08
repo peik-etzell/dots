@@ -11,6 +11,7 @@ return {
 					builtins.formatting.prettierd,
 					builtins.formatting.xmlformat,
 					builtins.formatting.clang_format,
+					builtins.formatting.latexindent,
 					builtins.code_actions.eslint_d,
 					builtins.code_actions.refactoring,
 					-- builtins.diagnostics.clang_check.with({
