@@ -56,7 +56,7 @@ return {
                     "yamlfmt",
                     "yamllint",
                     "lemminx",
-                    "xmlformatter",
+                    -- "xmlformatter",
 
                     -- Rust
                     "rust-analyzer",
