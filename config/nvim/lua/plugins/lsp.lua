@@ -2,12 +2,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
-		init = function()
+		config = function()
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 				border = vim.g.border,
 			})
-		end,
-		config = function()
 			require("lspconfig.ui.windows").default_options.border = vim.g.border
 			vim.api.nvim_create_autocmd("LspAttach", {
 				desc = "LSP on_attach",
