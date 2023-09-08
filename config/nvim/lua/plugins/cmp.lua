@@ -62,6 +62,11 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
+				formatting = {
+					format = require("lspkind").cmp_format({
+						mode = "symbol",
+					}),
+				},
 			})
 
 			-- `/` cmdline setup.
@@ -95,6 +100,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"p00f/clangd_extensions.nvim",
 			"jalvesaq/cmp-nvim-r",
+			"onsails/lspkind.nvim", -- symbols
 		},
 	},
 }
