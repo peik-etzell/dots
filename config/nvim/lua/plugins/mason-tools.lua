@@ -67,6 +67,10 @@ return {
                     -- "staticcheck",
                     "marksman",
                     "markdownlint",
+
+                    -- Tex
+                    "texlab",
+                    "latexindent",
                 },
 
                 -- if set to true this will check each tool for updates. If updates
