@@ -39,7 +39,7 @@ return {
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
         keys = {
-            { "<C-b>",       ":NvimTreeToggle<CR>" },
+            { "<C-b>",         ":NvimTreeToggle<CR>", { silent = true } },
             { "<leader><ESC>", ":NvimTreeFocus<CR>" },
         },
     },
