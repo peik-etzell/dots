@@ -17,7 +17,8 @@ vim.g.loaded_netrwPlugin = 1
 local set = vim.opt
 local let = vim.g
 
-let.border = "rounded"
+-- let.border = 'rounded'
+let.border = nil
 
 set.number = true
 set.relativenumber = false
