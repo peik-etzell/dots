@@ -13,7 +13,10 @@ return {
 
                     builtins.formatting.prettierd,
                     builtins.formatting.xmlformat,
+
+                    -- Tex
                     builtins.formatting.latexindent,
+                    builtins.diagnostics.chktex,
 
                     -- Shell
                     builtins.formatting.shfmt,
