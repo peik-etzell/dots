@@ -8,7 +8,7 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     -- C++ / CMake
-                    "clangd",
+                    -- "clangd",
                     "cpplint",
                     "cpptools",
                     "clang-format",
@@ -71,7 +71,6 @@ return {
                     -- Tex
                     "texlab",
                     "latexindent",
-                    "chktex",
                 },
 
                 -- if set to true this will check each tool for updates. If updates

@@ -28,6 +28,24 @@ return {
                     end)
                 end,
             })
+
+            local servers = {
+                "ccls",
+                -- "clangd",
+                -- "bash-language-server",
+                -- "lua-language-server",
+                -- "typst-lsp",
+                -- "omnisharp",
+                -- "python-lsp-server",
+                -- "yaml-language-server",
+                -- "rust-analyzer",
+            }
+            -- lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {})
+            for _, server in ipairs(servers) do
+                require("lspconfig")[server].setup({
+                    capabilities = require('cmp_nvim_lsp').default_capabilities()
+                })
+            end
         end,
     },
     {
