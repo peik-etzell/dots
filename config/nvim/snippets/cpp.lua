@@ -9,12 +9,6 @@ return {
 		t({ "", " */" }),
 	}),
 	s({
-		trig = ";)",
-		snippetType = "autosnippet",
-	}, {
-		t(");"),
-	}),
-	s({
 		dscr = "Main function boilerplate",
 		trig = "int main()",
 	}, {
