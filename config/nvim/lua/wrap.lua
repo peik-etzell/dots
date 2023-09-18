@@ -1,14 +1,16 @@
 -- Use wrap on files
 local pattern = { "*.md", "*.tex", "*.txt" }
+
+-- Turn on wrap and modify movement binds when entering a prose-based file
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = pattern,
-	callback = function(ev)
+	callback = function(_)
 		local set = vim.opt
 		set.wrap = true
 		set.linebreak = true
 
 		local set_keymap_n = function(lhs, rhs)
-			vim.keymap.set("n", lhs, rhs, { silent = true, buffer = true })
+			vim.keymap.set("n", lhs, rhs, { silent = true, buffer = true }) -- Buffer-local binds
 		end
 		set_keymap_n("j", "gj")
 		set_keymap_n("k", "gk")
@@ -17,9 +19,10 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	end,
 })
 
+-- Turn off wrap when leaving a prose-based file
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
 	pattern = pattern,
-	callback = function(ev)
+	callback = function(_)
 		local set = vim.opt
 		set.wrap = false
 		set.linebreak = false

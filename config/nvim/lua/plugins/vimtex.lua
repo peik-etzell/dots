@@ -17,7 +17,6 @@ return {
 
             local set = vim.opt
             set.conceallevel = 1
-            set.linebreak = true
         end,
     },
 }
