@@ -1,4 +1,4 @@
 return {
-	"kaarmu/typst.vim",
-	ft = "typst",
+    "kaarmu/typst.vim",
+    ft = "typst",
 }

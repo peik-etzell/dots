@@ -1,5 +1,5 @@
 return {
-	{
-		"jalvesaq/Nvim-R",
-	},
+    {
+        "jalvesaq/Nvim-R",
+    },
 }
