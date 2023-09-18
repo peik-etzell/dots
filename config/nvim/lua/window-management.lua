@@ -1,4 +1,4 @@
-local keymap_set = vim.keymap.set
+local set_keymap = vim.keymap.set
 
 local esc = "<ESC>"
 local termesc = "<C-\\><C-n>"
@@ -7,11 +7,11 @@ local opts = { silent = true }
 -- Set movement keymaps
 local movement_keys = { "h", "j", "k", "l" }
 for _, key in pairs(movement_keys) do
-	local lhs = "<A-" .. key .. ">"
-	local rhs = "<C-w>" .. key
-	set_keymap("n", lhs, rhs, opts)
-	set_keymap("i", lhs, esc .. rhs, opts)
-	set_keymap("t", lhs, termesc .. rhs, opts)
+    local lhs = "<A-" .. key .. ">"
+    local rhs = "<C-w>" .. key
+    set_keymap("n", lhs, rhs, opts)
+    set_keymap("i", lhs, esc .. rhs, opts)
+    set_keymap("t", lhs, termesc .. rhs, opts)
 end
 
 -- vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", opts)
