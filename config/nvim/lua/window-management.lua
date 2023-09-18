@@ -1,11 +1,9 @@
-local set_keymap = vim.api.nvim_set_keymap
+local keymap_set = vim.keymap.set
 
 local esc = "<ESC>"
 local termesc = "<C-\\><C-n>"
 local opts = { silent = true }
 
--- Bind esc to same function in terminal
--- set_keymap("t", esc, termesc, opts)
 -- Set movement keymaps
 local movement_keys = { "h", "j", "k", "l" }
 for _, key in pairs(movement_keys) do

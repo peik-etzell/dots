@@ -52,6 +52,7 @@ set.updatetime = 300
 set.clipboard = "unnamedplus"
 
 require("window-management")
+require("wrap")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

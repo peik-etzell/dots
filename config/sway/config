@@ -99,7 +99,7 @@ input {
 		natural_scroll enabled
 		scroll_method two_finger
 		scroll_factor 0.3
-		tap disabled
+		tap enabled
 		middle_emulation enabled
 		tap_button_map lrm
 		drag enabled
@@ -140,7 +140,6 @@ bindsym $mod+Shift+s exec 'grim -g "$(slurp)" - | wl-copy'
 bindsym $mod+Shift+Ctrl+s exec 'grim -g "$(slurp)" - | swappy -f -'
 
 bindsym $mod+Return exec $term
-bindsym $mod+e exec $files
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+p exec firefox
@@ -189,10 +188,12 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 # Switch the current container between different layout styles
-bindsym $mod+q layout toggle split
+# bindsym $mod+q layout toggle split
 
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
+bindsym $mod+e splitv
+bindsym $mod+w splith
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
@@ -215,5 +216,5 @@ bindsym $mod+Ctrl+$up resize shrink height 20px
 bindsym $mod+Ctrl+$right resize grow width 20px
 
 
-include /home/peik/.config/sway/config.d/*.conf
+# include /home/peik/.config/sway/config.d/*.conf
 include /etc/sway/config.d/*
