@@ -20,6 +20,8 @@ local let = vim.g
 -- let.border = 'rounded'
 let.border = nil
 
+set.mouse = nil
+set.smoothscroll = true
 set.number = true
 set.relativenumber = false
 set.tabstop = 4
