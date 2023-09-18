@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
         local set_keymap_n = function(lhs, rhs)
             vim.keymap.set("n", lhs, rhs, { silent = true, buffer = true }) -- Buffer-local binds
+            vim.keymap.set("v", lhs, rhs, { silent = true, buffer = true }) -- Buffer-local binds
         end
         set_keymap_n("j", "gj")
         set_keymap_n("k", "gk")

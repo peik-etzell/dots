@@ -34,7 +34,8 @@ set.list = true
 set.listchars:append("eol:↴")
 set.title = true
 set.cursorline = true
-set.so = 10;
+set.so = 10 -- Scroll offset
+set.colorcolumn = "80"
 
 -- Spell
 set.spelllang = "en_us"
