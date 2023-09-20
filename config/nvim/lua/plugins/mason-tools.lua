@@ -8,7 +8,7 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     -- C++ / CMake
-                    -- "clangd",
+                    "clangd",
                     "cpplint",
                     "cpptools",
                     "clang-format",

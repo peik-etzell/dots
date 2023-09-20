@@ -30,7 +30,7 @@ return {
             })
 
             local servers = {
-                "ccls",
+                -- "ccls",
                 -- "clangd",
                 -- "bash-language-server",
                 -- "lua-language-server",
