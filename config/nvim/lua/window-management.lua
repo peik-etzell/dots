@@ -14,7 +14,6 @@ for _, key in pairs(movement_keys) do
     set_keymap("t", lhs, termesc .. rhs, opts)
 end
 
--- vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", opts)
 set_keymap("n", "<A-S-q>", ":q<CR>", opts)
 set_keymap("t", "<A-S-q>", termesc .. ":q<CR>", opts)
 

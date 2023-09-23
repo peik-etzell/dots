@@ -12,7 +12,6 @@ return {
 
             local luasnip = require("luasnip")
             local cmp = require("cmp")
-            local cmp_buffer = require("cmp_buffer")
 
             cmp.setup({
                 snippet = {
@@ -45,7 +44,7 @@ return {
                 sorting = {
                     comparators = {
                         function(...)
-                            return cmp_buffer:compare_locality(...)
+                            return require("cmp_buffer"):compare_locality(...)
                         end,
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
@@ -58,12 +57,8 @@ return {
                     },
                 },
                 window = {
-                    completion = {
-                        border = vim.g.border
-                    },
-                    documentation = {
-                        border = vim.g.border
-                    }
+                    completion = { border = vim.g.border },
+                    documentation = { border = vim.g.border }
                 },
                 formatting = {
                     format = require("lspkind").cmp_format({

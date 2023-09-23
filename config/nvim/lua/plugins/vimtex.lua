@@ -16,7 +16,7 @@ return {
             let.tex_fold_enabled = 1
 
             local set = vim.opt
-            set.conceallevel = 1
+            set.conceallevel = 2
         end,
     },
 }
