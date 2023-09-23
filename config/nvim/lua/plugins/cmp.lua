@@ -97,7 +97,6 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp-signature-help",
-            "saadparwaiz1/cmp_luasnip",
             "jose-elias-alvarez/null-ls.nvim",
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
@@ -105,6 +104,21 @@ return {
             "jalvesaq/cmp-nvim-r",
             -- "rcarriga/cmp-dap",
             "onsails/lspkind.nvim", -- symbols
+            {
+                "saadparwaiz1/cmp_luasnip",
+                dependencies = {
+                    {
+                        "L3MON4D3/LuaSnip",
+                        build = (not jit.os:find("Windows"))
+                            and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
+                            or nil,
+                        config = function()
+                            require("luasnip").config.set_config({ enable_autosnippets = true })
+                            require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
+                        end,
+                    }
+                }
+            },
         },
     },
 }
