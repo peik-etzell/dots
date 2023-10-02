@@ -14,6 +14,9 @@ return {
             let.vimtex_quickfix_mode = 0
             let.tex_conceal = "abdmg"
             let.tex_fold_enabled = 1
+            let.vimtex_syntax_conceal = {
+                math_bounds = false
+            }
 
             local set = vim.opt
             set.conceallevel = 2
