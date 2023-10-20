@@ -70,10 +70,18 @@ return {
         config = function()
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
-                    require("lspconfig")[server_name].setup {
+                    require("lspconfig")[server_name].setup({
                         capabilities = require("cmp_nvim_lsp").default_capabilities()
-                    }
+                    })
                 end,
+                ['clangd'] = function()
+                    require("lspconfig")['clangd'].setup({
+                        capabilities = vim.tbl_extend(
+                            'force',
+                            require("cmp_nvim_lsp").default_capabilities(),
+                            { offsetEncoding = 'utf-8' })
+                    })
+                end
             })
         end,
     },
