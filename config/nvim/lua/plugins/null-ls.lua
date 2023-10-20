@@ -11,7 +11,11 @@ return {
                     -- builtins.formatting.stylua,
                     builtins.diagnostics.luacheck,
 
+                    -- JS/TS
                     builtins.formatting.prettierd,
+                    builtins.code_actions.eslint_d,
+
+                    -- XML
                     builtins.formatting.xmlformat,
 
                     -- Tex
@@ -21,6 +25,11 @@ return {
                     -- Shell
                     builtins.formatting.shfmt,
                     builtins.diagnostics.shellcheck,
+                    builtins.code_actions.shellcheck,
+
+                    -- Protobuf
+                    builtins.diagnostics.buf,
+                    builtins.formatting.buf,
 
                     -- Python
                     builtins.diagnostics.pylint,
@@ -28,22 +37,24 @@ return {
 
                     builtins.code_actions.eslint_d,
                     builtins.code_actions.refactoring,
+                    builtins.code_actions.gitsigns,
+                    builtins.diagnostics.gitlint,
+                    builtins.code_actions.proselint,
+                    builtins.diagnostics.proselint,
 
                     -- Markdown
                     -- builtins.formatting.markdownlint,
                     builtins.diagnostics.markdownlint,
 
-                    -- C++
-                    -- builtins.diagnostics.clang_check.with({
-                    -- 	extra_args = { "-extra-arg=-std=c++17" },
-                    -- }),
+                    -- C/C++ / CMake / Make
+                    -- builtins.diagnostics.clang_check,
                     builtins.diagnostics.cpplint.with({
                         args = { "--linelength=120" }, -- ROS
                     }),
-                    builtins.diagnostics.cppcheck.with({
-                        extra_args = { "--language=c++", "--std=c++17" },
-                    }),
+                    builtins.diagnostics.cppcheck,
                     builtins.formatting.clang_format,
+                    builtins.diagnostics.cmake_lint,
+                    builtins.formatting.cmake_lint,
                 },
             })
         end,

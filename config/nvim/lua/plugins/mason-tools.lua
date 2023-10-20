@@ -62,6 +62,12 @@ return {
                     -- Rust
                     "rust-analyzer",
 
+                    "proselint",
+                    "gitlint",
+
+                    "buf",
+                    "buf-language-server",
+
                     -- Misc
                     -- "editorconfig-checker",
                     -- "staticcheck",
