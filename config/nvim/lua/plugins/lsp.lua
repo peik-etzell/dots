@@ -1,6 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        dependencies = { "hrsh7th/cmp-nvim-lsp", },
         lazy = false,
         config = function()
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -68,18 +69,28 @@ return {
             "p00f/clangd_extensions.nvim",
         },
         config = function()
+            local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
                     require("lspconfig")[server_name].setup({
-                        capabilities = require("cmp_nvim_lsp").default_capabilities()
+                        capabilities = default_capabilities
                     })
                 end,
                 ['clangd'] = function()
                     require("lspconfig")['clangd'].setup({
                         capabilities = vim.tbl_extend(
                             'force',
-                            require("cmp_nvim_lsp").default_capabilities(),
+                            default_capabilities,
                             { offsetEncoding = 'utf-8' })
+                    })
+                end,
+                ['omnisharp'] = function()
+                    require("lspconfig")['omnisharp'].setup({
+                        capabilities = default_capabilities,
+                        cmd = {
+                            'dotnet',
+                            vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll",
+                        }
                     })
                 end
             })
