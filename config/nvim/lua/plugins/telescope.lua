@@ -2,7 +2,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
-        tag = "0.1.2",
+        branch = "0.1.x",
         dependencies = {
             { "nvim-lua/plenary.nvim" },
             "nvim-lua/plenary.nvim",
@@ -18,7 +18,7 @@ return {
                 },
             },
         },
-        config = function()
+        init = function()
             require("telescope").setup({
                 defaults = {
                     sorting_strategy = "ascending",
@@ -56,24 +56,24 @@ return {
             })
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("dap")
+
+            local function map(lhs, rhs, desc)
+                vim.keymap.set('n', lhs, rhs, { silent = true, desc = desc })
+            end
+
+            local builtin = require('telescope.builtin')
+
+            map('<leader>f', builtin.find_files, "Fuzzy find files")
+            map('<leader>c', builtin.colorscheme, "Change colorscheme")
+            map('<leader>g', function() builtin.live_grep({ layout_strategy = 'vertical' }) end,
+                "Fuzzy find in files")
+            map('<leader>lr', function() builtin.lsp_references() end, "Lsp references")
+            map('<leader>lk', function() builtin.diagnostics() end, "Lsp diagnostics")
+            map('<leader>li', function() builtin.lsp_implementations() end, "Lsp implementations")
+            map('<leader>ld', function() builtin.lsp_definitions() end, "Lsp definitions")
+            map('<C-/>', function() builtin.current_buffer_fuzzy_find({ layout_strategy = 'vertical' }) end,
+                "Fuzzy find in current buffer")
+            map('<leader>ta', function() builtin.builtin() end, "Telescope builtins")
         end,
-        keys = {
-            { "<leader>f",  ":Telescope find_files<CR>",          desc = "Find file" },
-            {
-                "<leader>g",
-                ":lua require('telescope.builtin').live_grep({ layout_strategy = 'vertical' })<CR>",
-                desc = "Grep string",
-            },
-            { "<leader>c",  ":Telescope colorscheme<CR>",         desc = "Colorscheme" },
-            { "<leader>lr", ":Telescope lsp_references<CR>",      desc = "References" },
-            { "<leader>lk", ":Telescope diagnostics<CR>",         desc = "Diagnostics" },
-            { "<leader>li", ":Telescope lsp_implementations<CR>", desc = "Implementations" },
-            { "<leader>ld", ":Telescope lsp_definitions<CR>",     desc = "Definitions" },
-            { "<leader>ta", ":Telescope<CR>",                     desc = "Telescope" },
-            {
-                "<C-/>",
-                ":lua require('telescope.builtin').current_buffer_fuzzy_find({ layout_strategy = 'vertical' })<CR>",
-            },
-        },
     },
 }
