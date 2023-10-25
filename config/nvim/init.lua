@@ -10,9 +10,6 @@ vim.filetype.add({
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
--- Advised by nvim-tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 local set = vim.opt
 local let = vim.g
