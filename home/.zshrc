@@ -25,8 +25,6 @@ alias tcn='mv --force -t ~/.local/share/Trash/files/'
 alias e="$EDITOR"
 alias rvim='sudo -E $EDITOR'
 
-alias cat='bat'
-
 alias l='ls -lh'
 alias ll='ls -lh'
 alias lsa='ls -lah'
