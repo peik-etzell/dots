@@ -32,6 +32,8 @@ set.title = true
 set.cursorline = true
 set.so = 10 -- Scroll offset
 set.colorcolumn = "80"
+set.ignorecase = true
+set.smartcase = true
 
 -- Spell
 set.spelllang = "en_us"
