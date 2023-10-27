@@ -25,9 +25,10 @@ alias tcn='mv --force -t ~/.local/share/Trash/files/'
 alias e="$EDITOR"
 alias rvim='sudo -E $EDITOR'
 
-alias l='ls -lh'
-alias ll='ls -lh'
-alias lsa='ls -lah'
+alias l='ls -lh --color'
+alias ll='ls -lh --color'
+alias ls='ls --color'
+alias lsa='ls -lah --color'
 alias wifi='nmcli dev wifi'
 alias bl='bluetoothctl'
 alias lz='lazygit'
