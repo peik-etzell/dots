@@ -3,6 +3,8 @@ export GPG_TTY=$(tty)
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=10000
 
 # Completion
 autoload -Uz compinit
@@ -64,22 +66,19 @@ zle -N down-line-or-beginning-search
 autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-# zstyle ':vcs_info:git:*' formats '%b'
-zstyle ':vcs_info:*' formats $VCS_NORMAL_FORMAT
+# Check for (un)staged changes, enables use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+
+zstyle ':vcs_info:git:*' formats '%F{red}[%f%b%F{red}%u%c]'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 precmd() { vcs_info }
 setopt prompt_subst
-prompt_peik_setup() {
-    # autoload -Uz vcs_info
-    # prompt_opts=( cr percent sp )
-    PS1='%F{green}%~ %f
+PS1='%F{green}%~ %f
 %# '
-    RPROMPT=`${vcs_info_msg_0_} `
-}
-prompt_themes+=( peik )
-prompt peik
-
-plugins=()
+RPROMPT='$vcs_info_msg_0_'
 
 ## get back ctrl-s and ctrl-q
 #https://superuser.com/questions/588846/cannot-get-vim-to-remap-ctrls-to-wo
