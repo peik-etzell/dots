@@ -54,7 +54,7 @@ return {
                     builtins.diagnostics.cppcheck,
                     builtins.formatting.clang_format,
                     builtins.diagnostics.cmake_lint,
-                    builtins.formatting.cmake_lint,
+                    builtins.formatting.cmake_format,
                 },
             })
         end,
