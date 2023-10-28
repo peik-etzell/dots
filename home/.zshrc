@@ -76,7 +76,7 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{green}%~ %f
+PS1='%F{yellow}%m %F{green}%~ %f
 %# '
 RPROMPT='$vcs_info_msg_0_'
 
