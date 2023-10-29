@@ -1,8 +1,4 @@
 export GPG_TTY=$(tty)
-
-HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
 
@@ -11,6 +7,9 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
+
+# Emacs mode
+bindkey -e
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
