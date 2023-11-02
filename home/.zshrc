@@ -159,6 +159,7 @@ path+=("${HOME}/.local/bin")
 
 if type direnv > /dev/null; then
     eval "$(direnv hook zsh)"
+fi
 
 if [ -d '/usr/lib/ccache/bin' ]; then
     path=('/usr/lib/ccache/bin' $path)
