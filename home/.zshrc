@@ -158,3 +158,7 @@ path+=("${HOME}/.cargo/bin")
 path+=("${HOME}/.local/bin")
 # prepend
 path=('/usr/lib/ccache/bin' $path)
+
+if type direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
