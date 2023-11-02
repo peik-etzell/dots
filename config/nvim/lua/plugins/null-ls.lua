@@ -35,6 +35,10 @@ return {
                     builtins.diagnostics.pylint,
                     builtins.formatting.autopep8,
 
+                    builtins.diagnostics.statix,
+                    builtins.code_actions.statix,
+                    builtins.formatting.nixfmt,
+
                     builtins.code_actions.eslint_d,
                     builtins.code_actions.refactoring,
                     builtins.code_actions.gitsigns,
