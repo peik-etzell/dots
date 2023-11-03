@@ -81,7 +81,8 @@ return {
                         capabilities = vim.tbl_extend(
                             'force',
                             default_capabilities,
-                            { offsetEncoding = 'utf-8' })
+                            { offsetEncoding = 'utf-8' }),
+                        filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc', } -- everything except .proto
                     })
                 end,
                 ['omnisharp'] = function()
