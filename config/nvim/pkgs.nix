@@ -32,10 +32,9 @@ with import <nixpkgs> { }; [
   typescript
 
   yaml-language-server
-  lemminx
   xmlformat
 
-  dockerfile-language-server-nodejs
+  nodePackages.dockerfile-language-server-nodejs
   docker-compose-language-service
 
   buf-language-server
