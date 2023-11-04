@@ -1,4 +1,7 @@
-vim.g.do_filetype_lua = 1
+local set = vim.opt
+local let = vim.g
+
+let.do_filetype_lua = 1
 vim.filetype.add({
     extension = {
         repos = "yaml",
@@ -8,11 +11,10 @@ vim.filetype.add({
     },
 })
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
 
-local set = vim.opt
-local let = vim.g
+
+let.mapleader = " "
+let.maplocalleader = ","
 
 -- let.border = 'rounded'
 let.border = nil
