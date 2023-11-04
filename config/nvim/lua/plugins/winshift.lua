@@ -1,17 +1,22 @@
 return {
     {
-        "sindrets/winshift.nvim",
+        'sindrets/winshift.nvim',
         lazy = false,
         config = function()
-            require("winshift").setup({
+            require('winshift').setup({
                 keymaps = {
                     disable_defaults = true,
                 },
             })
             local function map_s_alt(key, dir)
-                vim.keymap.set({ 'i', 'n', 't' }, '<S-A-' .. key .. '>',
-                    function() require('winshift').cmd_winshift(dir) end,
-                    { silent = true })
+                vim.keymap.set(
+                    { 'i', 'n', 't' },
+                    '<S-A-' .. key .. '>',
+                    function()
+                        require('winshift').cmd_winshift(dir)
+                    end,
+                    { silent = true }
+                )
             end
             map_s_alt('h', 'left')
             map_s_alt('j', 'down')

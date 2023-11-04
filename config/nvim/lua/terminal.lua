@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd({
-    "BufWinEnter",
+    'BufWinEnter',
     'WinEnter',
     'TermOpen',
 }, {
@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd({
     callback = function()
         vim.wo.number = false
         vim.cmd.startinsert()
-    end
+    end,
 })
 
 vim.keymap.set({ 'n', 'i', 't' }, '<A-CR>', function()

@@ -1,5 +1,5 @@
 return {
     {
-        "fladson/vim-kitty",
+        'fladson/vim-kitty',
     },
 }

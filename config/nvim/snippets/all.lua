@@ -10,10 +10,10 @@
 -- local rep = require("luasnip.extras").rep
 
 return {
-    s({ trig = "hello" }, {
-        t("hello world"),
+    s({ trig = 'hello' }, {
+        t('hello world'),
     }),
-    s({ trig = "peik" }, {
-        t("Peik Etzell"),
+    s({ trig = 'peik' }, {
+        t('Peik Etzell'),
     }),
 }

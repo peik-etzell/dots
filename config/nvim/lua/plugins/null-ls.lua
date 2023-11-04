@@ -1,9 +1,9 @@
 return {
     {
-        "nvimtools/none-ls.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        'nvimtools/none-ls.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
-            local null_ls = require("null-ls")
+            local null_ls = require('null-ls')
             local builtins = null_ls.builtins
             null_ls.setup({
                 sources = {
@@ -53,7 +53,7 @@ return {
                     -- C/C++ / CMake / Make
                     -- builtins.diagnostics.clang_check,
                     builtins.diagnostics.cpplint.with({
-                        args = { "--linelength=120" }, -- ROS
+                        args = { '--linelength=120' }, -- ROS
                     }),
                     builtins.diagnostics.cppcheck,
                     builtins.formatting.clang_format,

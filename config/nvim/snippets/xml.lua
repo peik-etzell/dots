@@ -1,24 +1,24 @@
 return {
     s({
-        trig = "</>",
-        dscr = "XML Self-closing Element",
+        trig = '</>',
+        dscr = 'XML Self-closing Element',
     }, {
-        t("<"),
+        t('<'),
         i(1),
-        t("/>"),
+        t('/>'),
     }),
     s({
-        trig = "<></>",
-        dscr = "XML Element",
+        trig = '<></>',
+        dscr = 'XML Element',
     }, {
-        t("<"),
+        t('<'),
         i(1),
-        t(">"),
+        t('>'),
         i(2),
-        t("</"),
+        t('</'),
         f(function(args)
             return args[1]
         end, ai[1]),
-        t(">"),
+        t('>'),
     }),
 }

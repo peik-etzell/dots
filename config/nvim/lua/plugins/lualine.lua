@@ -1,20 +1,20 @@
 return {
     {
-        "nvim-lualine/lualine.nvim",
+        'nvim-lualine/lualine.nvim',
         init = function()
-            require("lualine").setup({
+            require('lualine').setup({
                 options = {
-                    theme = "auto",
+                    theme = 'auto',
                     icons_enabled = true,
-                    component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" },
+                    component_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
                     disabled_filetypes = {
                         statusline = {
-                            "NvimTree",
+                            'NvimTree',
                         },
                         winbar = {
-                            "NvimTree",
-                            "toggleterm",
+                            'NvimTree',
+                            'toggleterm',
                         },
                     },
                     ignore_focus = {},
@@ -27,24 +27,24 @@ return {
                     },
                 },
                 sections = {
-                    lualine_a = { "mode" },
-                    lualine_b = { "branch", "diff", "diagnostics" },
+                    lualine_a = { 'mode' },
+                    lualine_b = { 'branch', 'diff', 'diagnostics' },
                     lualine_c = {
                         {
-                            "filename",
+                            'filename',
                             path = 0, -- just the filename
                         },
                     },
                     -- lualine_c = {},
-                    lualine_x = { "encoding", "fileformat", "filetype" },
-                    lualine_y = { "progress" },
-                    lualine_z = { "location" },
+                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                    lualine_y = { 'progress' },
+                    lualine_z = { 'location' },
                 },
                 inactive_sections = {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = { "filename" },
-                    lualine_x = { "location" },
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'location' },
                     lualine_y = {},
                     lualine_z = {},
                 },
@@ -52,7 +52,7 @@ return {
                 winbar = {
                     lualine_a = {
                         {
-                            "filename",
+                            'filename',
                             path = 1, -- just the filename
                         },
                     },
@@ -65,7 +65,7 @@ return {
                 inactive_winbar = {
                     lualine_a = {
                         {
-                            "filename",
+                            'filename',
                             path = 1, -- just the filename
                         },
                     },

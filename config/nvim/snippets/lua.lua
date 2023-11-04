@@ -1,18 +1,18 @@
 return {
-    s({ trig = "<leader>" }, {
-        t("<leader>"),
+    s({ trig = '<leader>' }, {
+        t('<leader>'),
     }),
-    s({ trig = "<CR>" }, {
-        t("<CR>"),
+    s({ trig = '<CR>' }, {
+        t('<CR>'),
     }),
-    s({ trig = "<>" }, {
-        t("<"),
+    s({ trig = '<>' }, {
+        t('<'),
         i(1),
-        t(">"),
+        t('>'),
     }),
-    s({ trig = "<C-?>" }, {
-        t("<C-"),
+    s({ trig = '<C-?>' }, {
+        t('<C-'),
         i(1),
-        t(">"),
+        t('>'),
     }),
 }

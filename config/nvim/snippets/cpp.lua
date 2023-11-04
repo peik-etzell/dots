@@ -1,11 +1,11 @@
 return {
     s({
-        dscr = "Autosnippet to expand to multiline comment",
-        trig = "///",
-        snippetType = "autosnippet",
+        dscr = 'Autosnippet to expand to multiline comment',
+        trig = '///',
+        snippetType = 'autosnippet',
     }, {
-        t({ "/**", " * " }),
+        t({ '/**', ' * ' }),
         i(1),
-        t({ "", " */" }),
+        t({ '', ' */' }),
     }),
 }

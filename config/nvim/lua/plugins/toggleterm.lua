@@ -1,16 +1,16 @@
 return {
     {
-        "akinsho/toggleterm.nvim",
-        version = "*",
+        'akinsho/toggleterm.nvim',
+        version = '*',
         enabled = false,
         config = true,
         keys = {
             {
-                "<A-CR>",
+                '<A-CR>',
                 function()
-                    require("toggleterm").toggle()
+                    require('toggleterm').toggle()
                 end,
-                mode = { "n", "i", "t" },
+                mode = { 'n', 'i', 't' },
             },
         },
     },

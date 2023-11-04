@@ -1,82 +1,80 @@
 return {
     {
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        enabled = vim.g.use_mason,
         dependencies = {
-            "williamboman/mason.nvim",
+            'williamboman/mason.nvim',
         },
         init = function()
-            require("mason-tool-installer").setup({
+            require('mason-tool-installer').setup({
                 ensure_installed = {
                     -- C++ / CMake
-                    "clangd",
-                    "cpplint",
-                    "cpptools",
-                    "clang-format",
-                    "cmake-language-server",
-                    "cmakelint",
-                    "cmakelang",
+                    'clangd',
+                    'cpplint',
+                    'cpptools',
+                    'clang-format',
+                    'cmake-language-server',
+                    'cmakelint',
+                    'cmakelang',
 
                     -- .sh
-                    "bash-language-server",
-                    "shellcheck",
-                    "shfmt",
+                    'bash-language-server',
+                    'shellcheck',
+                    'shfmt',
 
                     -- Lua
-                    "lua-language-server",
-                    "stylua",
-                    "luacheck",
+                    'lua-language-server',
+                    'stylua',
+                    'luacheck',
 
                     -- Typst
-                    "typst-lsp",
+                    'typst-lsp',
 
                     -- C#
-                    "omnisharp",
-                    "netcoredbg",
-
-                    -- Clojure
-                    "clojure-lsp",
+                    'omnisharp',
+                    'netcoredbg',
 
                     -- Python
-                    "autopep8",
-                    "python-lsp-server",
-                    "debugpy",
-                    "pylint",
+                    'autopep8',
+                    'python-lsp-server',
+                    'debugpy',
+                    'pylint',
 
                     -- Webdev
-                    "css-lsp",
-                    "html-lsp",
-                    "json-lsp",
-                    "typescript-language-server",
+                    'css-lsp',
+                    'html-lsp',
+                    'json-lsp',
+                    'typescript-language-server',
 
                     -- Docker
-                    "docker-compose-language-service",
-                    "dockerfile-language-server",
+                    'docker-compose-language-service',
+                    'dockerfile-language-server',
 
                     -- Yaml, XML
-                    "yaml-language-server",
-                    "yamlfmt",
-                    "yamllint",
-                    "lemminx",
+                    'yaml-language-server',
+                    'yamlfmt',
+                    'yamllint',
+                    'lemminx',
                     -- "xmlformatter",
 
                     -- Rust
-                    "rust-analyzer",
+                    'rust-analyzer',
 
-                    "proselint",
-                    "gitlint",
+                    'proselint',
+                    'gitlint',
 
-                    "buf",
-                    "buf-language-server",
+                    'buf',
+                    'buf-language-server',
 
                     -- Misc
                     -- "editorconfig-checker",
                     -- "staticcheck",
-                    "marksman",
-                    "markdownlint",
+                    'marksman',
+                    'markdownlint',
 
                     -- Tex
-                    "texlab",
-                    "latexindent",
+                    'texlab',
+                    'latexindent',
                 },
 
                 -- if set to true this will check each tool for updates. If updates

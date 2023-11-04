@@ -1,80 +1,93 @@
 return {
     {
-        "rcarriga/nvim-dap-ui",
+        'rcarriga/nvim-dap-ui',
         lazy = false,
         dependencies = {
             {
-                "mfussenegger/nvim-dap",
+                'mfussenegger/nvim-dap',
                 config = function()
-                    local dap = require("dap")
+                    local dap = require('dap')
                     local adapters = dap.adapters
                     local configurations = dap.configurations
 
-
                     -- ADAPTERS
                     adapters.lldb = {
-                        type = "executable",
-                        command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
-                        name = "lldb",
+                        type = 'executable',
+                        command = vim.fn.stdpath('data')
+                            .. '/mason/packages/codelldb/codelldb',
+                        name = 'lldb',
                     }
                     adapters.cppdbg = {
-                        id = "cppdbg",
-                        name = "cppdbg",
-                        type = "executable",
-                        command = vim.fn.stdpath("data")
-                            .. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
+                        id = 'cppdbg',
+                        name = 'cppdbg',
+                        type = 'executable',
+                        command = vim.fn.stdpath('data')
+                            .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
                     }
                     -- C#
                     adapters.coreclr = {
-                        type = "executable",
-                        command = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg/netcoredbg",
-                        args = { "--interpreter=vscode" },
+                        type = 'executable',
+                        command = vim.fn.stdpath('data')
+                            .. '/mason/packages/netcoredbg/netcoredbg',
+                        args = { '--interpreter=vscode' },
                     }
 
                     -- CONFIGURATIONS
                     local lldbConfig = {
-                        name = "Launch lldb",
-                        type = "lldb",
-                        request = "launch",
+                        name = 'Launch lldb',
+                        type = 'lldb',
+                        request = 'launch',
                         program = function()
-                            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                            return vim.fn.input(
+                                'Path to executable: ',
+                                vim.fn.getcwd() .. '/',
+                                'file'
+                            )
                         end,
-                        cwd = "${workspaceFolder}",
+                        cwd = '${workspaceFolder}',
                         stopOnEntry = false,
                         args = {},
                     }
                     local cpptoolsConfig = {
-                        name = "Launch cpptools",
-                        type = "cppdbg",
-                        request = "launch",
+                        name = 'Launch cpptools',
+                        type = 'cppdbg',
+                        request = 'launch',
                         program = function()
-                            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                            return vim.fn.input(
+                                'Path to executable: ',
+                                vim.fn.getcwd() .. '/',
+                                'file'
+                            )
                         end,
-                        cwd = "${workspaceFolder}",
+                        cwd = '${workspaceFolder}',
                         stopOnEntry = true,
                         setupCommands = {
                             {
-                                text = "-enable-pretty-printing",
-                                description = "enable pretty printing",
+                                text = '-enable-pretty-printing',
+                                description = 'enable pretty printing',
                                 ignoreFailures = false,
                             },
                         },
                     }
                     local gdbserverConfig = {
-                        name = "Attach to gdbserver :1234",
-                        type = "cppdbg",
-                        request = "launch",
-                        MIMode = "gdb",
-                        miDebuggerServerAddress = "localhost:1234",
-                        miDebuggerPath = "/usr/bin/gdb",
-                        cwd = "${workspaceFolder}",
+                        name = 'Attach to gdbserver :1234',
+                        type = 'cppdbg',
+                        request = 'launch',
+                        MIMode = 'gdb',
+                        miDebuggerServerAddress = 'localhost:1234',
+                        miDebuggerPath = '/usr/bin/gdb',
+                        cwd = '${workspaceFolder}',
                         program = function()
-                            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                            return vim.fn.input(
+                                'Path to executable: ',
+                                vim.fn.getcwd() .. '/',
+                                'file'
+                            )
                         end,
                         setupCommands = {
                             {
-                                text = "-enable-pretty-printing",
-                                description = "enable pretty printing",
+                                text = '-enable-pretty-printing',
+                                description = 'enable pretty printing',
                                 ignoreFailures = false,
                             },
                         },
@@ -84,37 +97,55 @@ return {
                     configurations.rust = { cpptoolsConfig, gdbserverConfig }
                     configurations.cs = {
                         {
-                            type = "coreclr",
-                            name = "Launch netcoredbg",
-                            request = "launch",
+                            type = 'coreclr',
+                            name = 'Launch netcoredbg',
+                            request = 'launch',
                             program = function()
-                                return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+                                return vim.fn.input(
+                                    'Path to dll',
+                                    vim.fn.getcwd() .. '/bin/Debug/',
+                                    'file'
+                                )
                             end,
                         },
                     }
 
-                    local opts = { silent = true };
-                    vim.keymap.set({ 'n' }, '<F5>', function() dap.continue() end, opts)
-                    vim.keymap.set({ 'n' }, '<F9>', function() dap.toggle_breakpoint() end, opts)
-                    vim.keymap.set({ 'n' }, '<F10>', function() dap.step_over() end, opts)
-                    vim.keymap.set({ 'n' }, '<F11>', function() dap.step_into() end, opts)
-                    vim.keymap.set({ 'n' }, '<s-<F11>>', function() dap.step_out() end, opts)
+                    local opts = { silent = true }
+                    vim.keymap.set({ 'n' }, '<F5>', function()
+                        dap.continue()
+                    end, opts)
+                    vim.keymap.set({ 'n' }, '<F9>', function()
+                        dap.toggle_breakpoint()
+                    end, opts)
+                    vim.keymap.set({ 'n' }, '<F10>', function()
+                        dap.step_over()
+                    end, opts)
+                    vim.keymap.set({ 'n' }, '<F11>', function()
+                        dap.step_into()
+                    end, opts)
+                    vim.keymap.set({ 'n' }, '<s-<F11>>', function()
+                        dap.step_out()
+                    end, opts)
                 end,
             },
-            { "mfussenegger/nvim-dap-python", lazy = false },
+            { 'mfussenegger/nvim-dap-python', lazy = false },
         },
         config = function()
             local dapui = require('dapui')
             dapui.setup({
-                icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
+                icons = {
+                    expanded = '▾',
+                    collapsed = '▸',
+                    current_frame = '▸',
+                },
                 mappings = {
                     -- Use a table to apply multiple mappings
-                    expand = { "<CR>", "<2-LeftMouse>" },
-                    open = "o",
-                    remove = "d",
-                    edit = "e",
-                    repl = "r",
-                    toggle = "t",
+                    expand = { '<CR>', '<2-LeftMouse>' },
+                    open = 'o',
+                    remove = 'd',
+                    edit = 'e',
+                    repl = 'r',
+                    toggle = 't',
                 },
                 -- Use this to override mappings for specific elements
                 element_mappings = {
@@ -126,7 +157,7 @@ return {
                 },
                 -- Expand lines larger than the window
                 -- Requires >= 0.7
-                expand_lines = vim.fn.has("nvim-0.7") == 1,
+                expand_lines = vim.fn.has('nvim-0.7') == 1,
                 -- Layouts define sections of the screen to place windows.
                 -- The position can be "left", "right", "top" or "bottom".
                 -- The size specifies the height/width depending on position. It can be an Int
@@ -138,45 +169,45 @@ return {
                     {
                         elements = {
                             -- Elements can be strings or table with id and size keys.
-                            { id = "scopes", size = 0.25 },
-                            "breakpoints",
-                            "stacks",
-                            "watches",
+                            { id = 'scopes', size = 0.25 },
+                            'breakpoints',
+                            'stacks',
+                            'watches',
                         },
                         size = 40, -- 40 columns
-                        position = "left",
+                        position = 'left',
                     },
                     {
                         elements = {
-                            "repl",
-                            "console",
+                            'repl',
+                            'console',
                         },
                         size = 0.25, -- 25% of total lines
-                        position = "bottom",
+                        position = 'bottom',
                     },
                 },
                 controls = {
                     -- Requires Neovim nightly (or 0.8 when released)
                     enabled = true,
                     -- Display controls in this element
-                    element = "repl",
+                    element = 'repl',
                     icons = {
-                        pause = "",
-                        play = "",
-                        step_into = "",
-                        step_over = "",
-                        step_out = "",
-                        step_back = "",
-                        run_last = "↻",
-                        terminate = "□",
+                        pause = '',
+                        play = '',
+                        step_into = '',
+                        step_over = '',
+                        step_out = '',
+                        step_back = '',
+                        run_last = '↻',
+                        terminate = '□',
                     },
                 },
                 floating = {
-                    max_height = nil,      -- These can be integers or a float between 0 and 1.
-                    max_width = nil,       -- Floats will be treated as percentage of your screen.
+                    max_height = nil, -- These can be integers or a float between 0 and 1.
+                    max_width = nil, -- Floats will be treated as percentage of your screen.
                     border = vim.g.border, -- Border style. Can be "single", "double" or "rounded"
                     mappings = {
-                        close = { "q", "<Esc>" },
+                        close = { 'q', '<Esc>' },
                     },
                 },
                 windows = { indent = 1 },
@@ -197,7 +228,7 @@ return {
             'nvim-treesitter/nvim-treesitter',
         },
         config = function()
-            require("nvim-dap-virtual-text").setup {
+            require('nvim-dap-virtual-text').setup({
                 -- enable this plugin (the default)
                 enabled = true,
                 -- create commands
@@ -227,7 +258,13 @@ return {
                 --- @param node userdata tree-sitter node identified as variable definition of reference (see `:h tsnode`)
                 --- @param options nvim_dap_virtual_text_options Current options for nvim-dap-virtual-text
                 --- @return string|nil A text how the virtual text should be displayed or nil, if this variable shouldn't be displayed
-                display_callback = function(variable, buf, stackframe, node, options)
+                display_callback = function(
+                    variable,
+                    buf,
+                    stackframe,
+                    node,
+                    options
+                )
                     if options.virt_text_pos == 'inline' then
                         return ' = ' .. variable.value
                     else
@@ -236,7 +273,8 @@ return {
                 end,
                 -- position of virtual text, see `:h nvim_buf_set_extmark()`, default tries to inline the virtual text.
                 -- Use 'eol' to set to end of line
-                virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
+                virt_text_pos = vim.fn.has('nvim-0.10') == 1 and 'inline'
+                    or 'eol',
 
                 -- experimental features:
                 --
@@ -245,10 +283,10 @@ return {
                 -- show virtual lines instead of virtual text (will flicker!)
                 virt_lines = false,
                 -- position the virtual text at a fixed window column (starting from the first text column) ,
-                virt_text_win_col = nil
+                virt_text_win_col = nil,
                 -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
-            }
-        end
+            })
+        end,
     },
     {
         'LiadOz/nvim-dap-repl-highlights',
@@ -258,10 +296,9 @@ return {
         },
         config = function()
             require('nvim-dap-repl-highlights').setup()
-            require('nvim-treesitter.configs').setup {
+            require('nvim-treesitter.configs').setup({
                 ensure_installed = { 'dap_repl' },
-            }
-        end
-
-    }
+            })
+        end,
+    },
 }

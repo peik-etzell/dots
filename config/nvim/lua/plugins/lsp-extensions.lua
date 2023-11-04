@@ -1,11 +1,11 @@
 return {
     {
-        "scalameta/nvim-metals",
+        'scalameta/nvim-metals',
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/cmp-nvim-lsp",
+            'nvim-lua/plenary.nvim',
+            'hrsh7th/cmp-nvim-lsp',
         },
-        ft = "scala",
+        ft = 'scala',
         lazy = true,
         config = function()
             local metals = require('metals')
@@ -15,30 +15,31 @@ return {
             config.on_attach = function()
                 metals.setup_dap()
             end
-            local group = vim.api.nvim_create_augroup('nvim-metals', { clear = true })
+            local group =
+                vim.api.nvim_create_augroup('nvim-metals', { clear = true })
             vim.api.nvim_create_autocmd('FileType', {
                 pattern = { 'scala', 'sbt', 'java' },
                 callback = function()
                     metals.initialize_or_attach(config)
                 end,
-                group = group
+                group = group,
             })
         end,
     },
     {
-        "simrat39/rust-tools.nvim",
-        ft = "rust",
+        'simrat39/rust-tools.nvim',
+        ft = 'rust',
         lazy = true,
-        dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" },
+        dependencies = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' },
     },
     {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         config = function()
-            require("lsp_lines").setup()
+            require('lsp_lines').setup()
             vim.diagnostic.config({
                 virtual_text = false,
             })
         end,
-        ft = { "rust" },
+        ft = { 'rust' },
     },
 }
