@@ -1,7 +1,7 @@
 return {
     {
         "rcarriga/nvim-dap-ui",
-        lazy = true,
+        lazy = false,
         dependencies = {
             {
                 "mfussenegger/nvim-dap",
@@ -92,12 +92,20 @@ return {
                             end,
                         },
                     }
+
+                    local opts = { silent = true };
+                    vim.keymap.set({ 'n' }, '<F5>', function() dap.continue() end, opts)
+                    vim.keymap.set({ 'n' }, '<F9>', function() dap.toggle_breakpoint() end, opts)
+                    vim.keymap.set({ 'n' }, '<F10>', function() dap.step_over() end, opts)
+                    vim.keymap.set({ 'n' }, '<F11>', function() dap.step_into() end, opts)
+                    vim.keymap.set({ 'n' }, '<s-<F11>>', function() dap.step_out() end, opts)
                 end,
             },
-            { "mfussenegger/nvim-dap-python", lazy = true },
+            { "mfussenegger/nvim-dap-python", lazy = false },
         },
         config = function()
-            require("dapui").setup({
+            local dapui = require('dapui')
+            dapui.setup({
                 icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
                 mappings = {
                     -- Use a table to apply multiple mappings
@@ -177,15 +185,10 @@ return {
                     max_value_lines = 100, -- Can be integer or nil.
                 },
             })
+            vim.keymap.set({ 'n' }, '<F4>', function()
+                dapui.toggle()
+            end, { silent = true })
         end,
-        keys = {
-            { "<F4>",      ":lua require('dapui').toggle()<CR>",          desc = "Toggle UI" },
-            { "<F5>",      ":lua require('dap').continue()<CR>",          desc = "Continue" },
-            { "<F9>",      ":lua require('dap').toggle_breakpoint()<CR>", desc = "Toggle breakpoint " },
-            { "<F10>",     ":lua require('dap').step_over()<CR>",         desc = "Step over" },
-            { "<F11>",     ":lua require('dap').step_into()<CR>",         desc = "Step into" },
-            { "<S-<F11>>", ":lua require('dap').step_out()<CR>",          desc = "Step out" },
-        },
     },
     {
         'theHamsta/nvim-dap-virtual-text',
