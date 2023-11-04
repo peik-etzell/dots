@@ -59,8 +59,8 @@ return {
             }
             -- lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {})
             for _, server in ipairs(servers) do
-                require("lspconfig")[server].setup({
-                    capabilities = require('cmp_nvim_lsp').default_capabilities()
+                require('lspconfig')[server].setup({
+                    capabilities = require('cmp_nvim_lsp').default_capabilities(),
                 })
             end
         end,
@@ -98,8 +98,9 @@ return {
                         capabilities = vim.tbl_extend(
                             'force',
                             default_capabilities,
-                            { offsetEncoding = 'utf-8' }),
-                        filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc', } -- everything except .proto
+                            { offsetEncoding = 'utf-8' }
+                        ),
+                        filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc' }, -- everything except .proto
                     })
                 end,
                 ['omnisharp'] = function()
