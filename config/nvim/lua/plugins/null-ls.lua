@@ -33,7 +33,7 @@ return {
 
                     -- Python
                     builtins.diagnostics.pylint,
-                    builtins.formatting.autopep8,
+                    builtins.formatting.black,
 
                     builtins.diagnostics.statix,
                     builtins.code_actions.statix,

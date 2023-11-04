@@ -38,35 +38,64 @@ return {
                     set_keymap('<leader>s', function()
                         vim.lsp.buf.format({
                             async = true,
-                            filter = function(client)
-                                return client.name ~= 'lua_ls'
+                            filter = function(server)
+                                return server.name ~= 'lua_ls'
                             end,
                         })
                     end)
                 end,
             })
 
-            local servers = {
-                -- "ccls",
-                -- "clangd",
-                -- "bash-language-server",
-                -- "lua-language-server",
-                -- "typst-lsp",
-                -- "omnisharp",
-                -- "python-lsp-server",
-                -- "yaml-language-server",
-                -- "rust-analyzer",
-            }
-            -- lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {})
-            for _, server in ipairs(servers) do
-                require('lspconfig')[server].setup({
-                    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            if not vim.g.use_mason then
+                local servers = {
+                    'typst_lsp',
+                    'pylsp',
+                    'yamlls',
+                    'texlab',
+                }
+                local lspconfig = require('lspconfig')
+                local default_capabilities =
+                    require('cmp_nvim_lsp').default_capabilities()
+                for _, server in ipairs(servers) do
+                    lspconfig[server].setup({
+                        capabilities = default_capabilities,
+                    })
+                end
+                lspconfig.lua_ls.setup({
+                    capabilities = default_capabilities,
+                })
+                lspconfig.bashls.setup({
+                    capabilities = default_capabilities,
+                })
+                lspconfig.clangd.setup({
+                    capabilities = vim.tbl_extend(
+                        'force',
+                        default_capabilities,
+                        { offsetEncoding = 'utf-8' }
+                    ),
+                    filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc' },
+                })
+                local function omnisharp_cmd()
+                    if vim.g.use_mason then
+                        return {
+                            'dotnet',
+                            vim.fn.stdpath('data')
+                                .. '/mason/packages/omnisharp/libexec/OmniSharp.dll',
+                        }
+                    else
+                        return { 'OmniSharp' }
+                    end
+                end
+                lspconfig.omnisharp.setup({
+                    capabilities = default_capabilities,
+                    cmd = omnisharp_cmd(),
                 })
             end
         end,
     },
     {
         'williamboman/mason.nvim',
+        enabled = vim.g.use_mason,
         lazy = true,
         config = function()
             require('mason').setup({
@@ -79,6 +108,7 @@ return {
     },
     {
         'williamboman/mason-lspconfig.nvim',
+        enabled = vim.g.use_mason,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
             'neovim/nvim-lspconfig',
@@ -94,7 +124,7 @@ return {
                     })
                 end,
                 ['clangd'] = function()
-                    require('lspconfig')['clangd'].setup({
+                    require('lspconfig').clangd.setup({
                         capabilities = vim.tbl_extend(
                             'force',
                             default_capabilities,
@@ -104,7 +134,7 @@ return {
                     })
                 end,
                 ['omnisharp'] = function()
-                    require('lspconfig')['omnisharp'].setup({
+                    require('lspconfig').omnisharp.setup({
                         capabilities = default_capabilities,
                         cmd = {
                             'dotnet',
