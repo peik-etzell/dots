@@ -8,7 +8,7 @@ return {
             null_ls.setup({
                 sources = {
                     -- Lua
-                    -- builtins.formatting.stylua,
+                    builtins.formatting.stylua,
                     builtins.diagnostics.luacheck,
 
                     -- JS/TS

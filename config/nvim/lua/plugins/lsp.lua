@@ -24,8 +24,13 @@ return {
                     set_keymap("<C-k>", function()
                         vim.diagnostic.open_float({ border = vim.g.border })
                     end)
-                    set_keymap("<leader>s", function()
-                        vim.lsp.buf.format({ async = true })
+                    set_keymap('<leader>s', function()
+                        vim.lsp.buf.format({
+                            async = true,
+                            filter = function(client)
+                                return client.name ~= 'lua_ls'
+                            end,
+                        })
                     end)
                 end,
             })
