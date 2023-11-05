@@ -59,7 +59,7 @@ return {
                     'pylsp',
                     'yamlls',
                     'texlab',
-                    'openscad_ls',
+                    'openscad_lsp',
                 }
                 local lspconfig = require('lspconfig')
                 local default_capabilities =

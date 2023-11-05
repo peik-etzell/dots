@@ -29,6 +29,8 @@ with import <nixpkgs> { }; [
 
   omnisharp-roslyn
 
+  openscad-lsp
+
   typescript
 
   yaml-language-server
