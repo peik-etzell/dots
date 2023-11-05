@@ -35,14 +35,21 @@ return {
                     set_keymap('<C-k>', function()
                         vim.diagnostic.open_float({ border = vim.g.border })
                     end)
-                    set_keymap('<leader>s', function()
-                        vim.lsp.buf.format({
-                            async = true,
-                            filter = function(server)
-                                return server.name ~= 'lua_ls'
-                            end,
-                        })
-                    end)
+
+                    if
+                        client.server_capabilities.documentFormattingProvider
+                    then
+                        set_keymap('<leader>s', function()
+                            vim.lsp.buf.format({
+                                async = true,
+                                filter = function(server)
+                                    return server.name ~= 'lua_ls'
+                                end,
+                            })
+                        end)
+                    else
+                        set_keymap('<leader>s', 'gg=G')
+                    end
                 end,
             })
 
@@ -52,6 +59,7 @@ return {
                     'pylsp',
                     'yamlls',
                     'texlab',
+                    'openscad_ls',
                 }
                 local lspconfig = require('lspconfig')
                 local default_capabilities =
