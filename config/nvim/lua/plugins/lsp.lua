@@ -69,6 +69,7 @@ return {
                     'yamlls',
                     'texlab',
                     'openscad_lsp',
+                    'cmake',
                 }
                 local lspconfig = require('lspconfig')
                 local default_capabilities =
