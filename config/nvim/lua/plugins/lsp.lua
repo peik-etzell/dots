@@ -1,7 +1,16 @@
 return {
     {
         'neovim/nvim-lspconfig',
-        dependencies = { 'hrsh7th/cmp-nvim-lsp' },
+        dependencies = {
+            { 'hrsh7th/cmp-nvim-lsp' },
+            {
+                'folke/neodev.nvim',
+                opts = {},
+                config = function()
+                    require('neodev').setup({})
+                end,
+            },
+        },
         lazy = false,
         config = function()
             vim.lsp.handlers['textDocument/hover'] =
@@ -71,6 +80,13 @@ return {
                 end
                 lspconfig.lua_ls.setup({
                     capabilities = default_capabilities,
+                    settings = {
+                        Lua = {
+                            completion = {
+                                callSnippet = 'Replace',
+                            },
+                        },
+                    },
                 })
                 lspconfig.bashls.setup({
                     capabilities = default_capabilities,
