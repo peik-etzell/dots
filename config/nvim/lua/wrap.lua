@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     callback = function(_)
         vim.opt_local.wrap = true
         vim.opt_local.linebreak = true
+        vim.opt_local.textwidth = 80
         for _, key in pairs({ 'j', 'k', '$', '0' }) do
             vim.keymap.set(
                 { 'n', 'v' },
