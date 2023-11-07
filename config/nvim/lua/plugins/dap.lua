@@ -111,21 +111,11 @@ return {
                     }
 
                     local opts = { silent = true }
-                    vim.keymap.set({ 'n' }, '<F5>', function()
-                        dap.continue()
-                    end, opts)
-                    vim.keymap.set({ 'n' }, '<F9>', function()
-                        dap.toggle_breakpoint()
-                    end, opts)
-                    vim.keymap.set({ 'n' }, '<F10>', function()
-                        dap.step_over()
-                    end, opts)
-                    vim.keymap.set({ 'n' }, '<F11>', function()
-                        dap.step_into()
-                    end, opts)
-                    vim.keymap.set({ 'n' }, '<s-<F11>>', function()
-                        dap.step_out()
-                    end, opts)
+                    vim.keymap.set({ 'n' }, '<F5>', dap.continue, opts)
+                    vim.keymap.set({ 'n' }, '<F9>', dap.toggle_breakpoint, opts)
+                    vim.keymap.set({ 'n' }, '<F10>', dap.step_over, opts)
+                    vim.keymap.set({ 'n' }, '<F11>', dap.step_into, opts)
+                    vim.keymap.set({ 'n' }, '<s-<F11>>', dap.step_out, opts)
                 end,
             },
             { 'mfussenegger/nvim-dap-python', lazy = false },
