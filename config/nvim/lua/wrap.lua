@@ -5,16 +5,15 @@ local pattern = { '*.md', '*.tex', '*.txt' }
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     pattern = pattern,
     callback = function(_)
-
-        local set_keymap_n = function(lhs, rhs)
-            vim.keymap.set('n', lhs, rhs, { silent = true, buffer = true }) -- Buffer-local binds
-            vim.keymap.set('v', lhs, rhs, { silent = true, buffer = true }) -- Buffer-local binds
         vim.opt_local.wrap = true
         vim.opt_local.linebreak = true
+        for _, key in pairs({ 'j', 'k', '$', '0' }) do
+            vim.keymap.set(
+                { 'n', 'v' },
+                key,
+                'g' .. key,
+                { silent = true, buffer = true }
+            )
         end
-        set_keymap_n('j', 'gj')
-        set_keymap_n('k', 'gk')
-        set_keymap_n('$', 'g$')
-        set_keymap_n('0', 'g0')
     end,
 })
