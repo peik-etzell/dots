@@ -1,6 +1,6 @@
 #!/bin/zsh
 # https://unix.stackexchange.com/questions/591621/how-can-i-reload-swayidle-swaylock
-TIMEOUT=50
+TIMEOUT=1200
 SLEEP_MODE=
 
 if [[ "$(cat /sys/power/mem_sleep | grep '\[s2idle\]')" != "" ]]; then
