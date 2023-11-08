@@ -27,24 +27,15 @@ set.shiftwidth = 4
 set.expandtab = true
 set.timeoutlen = 500
 set.undofile = true
-set.wrap = false -- Overridden in ft=tex
+set.wrap = false
 set.list = true
 set.listchars:append('eol:↴')
 set.title = true
 set.cursorline = true
-set.so = 10 -- Scroll offset
+set.scrolloff = 10 -- Scroll offset
 set.colorcolumn = '80'
 set.ignorecase = true
 set.smartcase = true
-
--- Spell
-set.spelllang = 'en_us'
-set.spell = false
--- Exclude terminal from spellchecking
-vim.api.nvim_create_autocmd(
-    { 'TermOpen' },
-    { pattern = { '*' }, command = 'setlocal nospell' }
-)
 
 -- folding
 set.foldlevel = 99
@@ -53,6 +44,13 @@ set.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.cmd([[
 highlight Folded guibg=black guifg=lightgreen
 ]])
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({ timeout = 500 })
+    end,
+})
 
 set.updatetime = 300
 set.clipboard = 'unnamedplus'
