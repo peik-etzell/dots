@@ -41,7 +41,7 @@ with import <nixpkgs> { }; [
 
   buf-language-server
 
-  (lua5_1.withPackages (ps: with ps; [ luacheck ]))
+  (lua5_1.withPackages (ps: with ps; [ ]))
   lua-language-server
   stylua
 

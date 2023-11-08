@@ -9,7 +9,6 @@ return {
                 sources = {
                     -- Lua
                     builtins.formatting.stylua,
-                    builtins.diagnostics.luacheck,
 
                     -- JS/TS
                     builtins.formatting.prettierd,
