@@ -16,6 +16,7 @@ with import <nixpkgs> { }; [
   # nix
   statix
   nixfmt
+  rnix-lsp
 
   # C/C++
   cpplint

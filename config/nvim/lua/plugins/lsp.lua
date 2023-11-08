@@ -70,6 +70,9 @@ return {
                     'texlab',
                     'openscad_lsp',
                     'cmake',
+                    'dockerls',
+                    'docker_compose_language_service',
+                    'rnix',
                 }
                 local lspconfig = require('lspconfig')
                 local default_capabilities =
