@@ -94,6 +94,7 @@ return {
                 })
                 lspconfig.bashls.setup({
                     capabilities = default_capabilities,
+                    filetypes = { 'sh', 'zsh', 'bash' },
                 })
                 lspconfig.clangd.setup({
                     capabilities = vim.tbl_extend(
