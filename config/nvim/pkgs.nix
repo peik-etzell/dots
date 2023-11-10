@@ -33,7 +33,7 @@ with import <nixpkgs> { }; [
 
   openscad-lsp
 
-  typescript
+  nodePackages.typescript-language-server
 
   yaml-language-server
   xmlformat

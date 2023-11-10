@@ -13,6 +13,7 @@ return {
         },
         lazy = false,
         config = function()
+            vim.diagnostic.config({ virtual_text = false })
             vim.lsp.handlers['textDocument/hover'] =
                 vim.lsp.with(vim.lsp.handlers.hover, {
                     border = vim.g.border,
@@ -73,6 +74,7 @@ return {
                     'dockerls',
                     'docker_compose_language_service',
                     'rnix',
+                    'tsserver',
                 }
                 local lspconfig = require('lspconfig')
                 local default_capabilities =
