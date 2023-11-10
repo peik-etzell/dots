@@ -1,7 +1,7 @@
 return {
     {
         'rcarriga/nvim-dap-ui',
-        lazy = false,
+        ft = { 'c', 'cpp', 'rust', 'python', 'csharp' },
         dependencies = {
             {
                 'mfussenegger/nvim-dap',
@@ -32,7 +32,7 @@ return {
                         args = { '--interpreter=vscode' },
                     }
 
-                    function path_to_executable()
+                    local function path_to_executable()
                         return vim.fn.input({
                             prompt = 'Path to executable: ',
                             default = vim.fn.getcwd() .. '/',
@@ -90,13 +90,7 @@ return {
                             type = 'coreclr',
                             name = 'Launch netcoredbg',
                             request = 'launch',
-                            program = function()
-                                return vim.fn.input(
-                                    'Path to dll',
-                                    vim.fn.getcwd() .. '/bin/Debug/',
-                                    'file'
-                                )
-                            end,
+                            program = path_to_executable,
                         },
                     }
 
