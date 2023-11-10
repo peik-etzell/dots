@@ -27,12 +27,6 @@ set_keymap('<A-C-j>', resize('-1', false))
 set_keymap('<A-C-k>', resize('+1', false))
 set_keymap('<A-C-l>', resize('+3', true))
 
-set_keymap('<C-u>', '<C-u>zz')
-set_keymap('<C-d>', '<C-d>zz')
-
-set_keymap('<Up>', 'kzz')
-set_keymap('<Down>', 'jzz')
-
 -- Resize nvim splits when whole window resizes
 vim.api.nvim_create_autocmd({ 'VimResized' }, {
     pattern = { '*' },
