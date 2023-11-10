@@ -32,18 +32,20 @@ return {
                         args = { '--interpreter=vscode' },
                     }
 
+                    function path_to_executable()
+                        return vim.fn.input({
+                            prompt = 'Path to executable: ',
+                            default = vim.fn.getcwd() .. '/',
+                            completion = 'file',
+                        })
+                    end
+
                     -- CONFIGURATIONS
                     local lldbConfig = {
                         name = 'Launch lldb',
                         type = 'lldb',
                         request = 'launch',
-                        program = function()
-                            return vim.fn.input(
-                                'Path to executable: ',
-                                vim.fn.getcwd() .. '/',
-                                'file'
-                            )
-                        end,
+                        program = path_to_executable,
                         cwd = '${workspaceFolder}',
                         stopOnEntry = false,
                         args = {},
@@ -52,13 +54,7 @@ return {
                         name = 'Launch cpptools',
                         type = 'cppdbg',
                         request = 'launch',
-                        program = function()
-                            return vim.fn.input(
-                                'Path to executable: ',
-                                vim.fn.getcwd() .. '/',
-                                'file'
-                            )
-                        end,
+                        program = path_to_executable,
                         cwd = '${workspaceFolder}',
                         stopOnEntry = true,
                         setupCommands = {
@@ -77,13 +73,7 @@ return {
                         miDebuggerServerAddress = 'localhost:1234',
                         miDebuggerPath = '/usr/bin/gdb',
                         cwd = '${workspaceFolder}',
-                        program = function()
-                            return vim.fn.input(
-                                'Path to executable: ',
-                                vim.fn.getcwd() .. '/',
-                                'file'
-                            )
-                        end,
+                        program = path_to_executable,
                         setupCommands = {
                             {
                                 text = '-enable-pretty-printing',

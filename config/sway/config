@@ -52,7 +52,8 @@ for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_si
 for_window [class="rviz2"] floating enable
 
 # pavucontrol
-for_window [app_id="pavucontrol"] floating enable, sticky enable, resize set width 600 height 800, move position cursor, move down 35
+for_window [app_id="pavucontrol"] floating enable, sticky enable, resize set width 600 height 800 
+#, move position cursor, move down 35
 
 # output
 output {
@@ -70,6 +71,9 @@ output {
 	'Unknown UMC SHARP 0x00000000' {
 		scale 2
 	}
+    'Chimei Innolux Corporation 0x15E8 Unknown' {
+        subpixel rgb
+    }
 	* {
 		adaptive_sync on
 		bg $WALLPAPER fill
@@ -81,7 +85,7 @@ output {
 mouse_warping container
 
 # hide cursor after delay
-seat * hide_cursor 5000
+seat * hide_cursor 3000
 
 input {
 	"type:keyboard" {
@@ -113,21 +117,15 @@ input {
         accel_profile flat
         pointer_accel 0
     }
+    "1739:0:Synaptics_TM3512-010" {
+        dwt disabled
+        dwtp enabled
+        tap disabled
+    }
 }
 
 bindgesture swipe:right workspace prev 
 bindgesture swipe:left workspace next
-
-# base16 colors
-include colorscheme
-
-#Property Name          Border  BG      Text    Indicator Child
-client.focused          $base05 $base0A $base00 $base0A $base0A
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
 
 # Volume control
 bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > $WOBSOCK
@@ -142,8 +140,8 @@ bindsym --locked XF86MonBrightnessUp exec $HOME/dots/scripts/brightness.sh up > 
 bindsym $mod+Shift+s exec 'grim -g "$(slurp)" - | wl-copy'
 bindsym $mod+Shift+Ctrl+s exec 'grim -g "$(slurp)" - | swappy -f -'
 
-bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
+bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+p exec firefox
 
@@ -211,7 +209,6 @@ bindsym $mod+Ctrl+$left resize shrink width 20px
 bindsym $mod+Ctrl+$down resize grow height 20px
 bindsym $mod+Ctrl+$up resize shrink height 20px
 bindsym $mod+Ctrl+$right resize grow width 20px
-
 
 # include /home/peik/.config/sway/config.d/*.conf
 include /etc/sway/config.d/*
