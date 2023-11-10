@@ -4,6 +4,7 @@ with import <nixpkgs> { }; [
   ripgrep
   git
   lazygit
+  gnumake
 
   # sh
   nodePackages.bash-language-server

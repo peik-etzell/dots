@@ -31,7 +31,7 @@ return {
                     builtins.formatting.buf,
 
                     -- Python
-                    builtins.diagnostics.pylint,
+                    -- builtins.diagnostics.pylint,
                     builtins.formatting.black,
 
                     builtins.diagnostics.statix,
