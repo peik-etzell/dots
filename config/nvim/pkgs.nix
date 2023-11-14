@@ -25,6 +25,7 @@ with import <nixpkgs> { }; [
   clang-tools
   cmake-language-server
 
+  texlive.combined.scheme-full
   texlab
   typst-lsp
   proselint

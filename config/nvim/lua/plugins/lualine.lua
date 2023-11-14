@@ -45,12 +45,7 @@ return {
                 },
                 tabline = {},
                 winbar = {
-                    lualine_a = {
-                        {
-                            'filename',
-                            path = 1, -- just the filename
-                        },
-                    },
+                    lualine_a = { { 'filename', path = 1 } },
                     lualine_b = {},
                     lualine_c = {},
                     lualine_x = {},
@@ -58,12 +53,7 @@ return {
                     lualine_z = {},
                 },
                 inactive_winbar = {
-                    lualine_a = {
-                        {
-                            'filename',
-                            path = 1, -- just the filename
-                        },
-                    },
+                    lualine_a = { { 'filename', path = 1 } },
                     lualine_b = {},
                     lualine_c = {},
                     lualine_x = {},
