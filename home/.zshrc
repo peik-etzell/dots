@@ -49,11 +49,11 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+    autoload -Uz add-zle-hook-widget
+    function zle_application_mode_start { echoti smkx }
+    function zle_application_mode_stop { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 # Partial history search with arrows
@@ -127,33 +127,49 @@ function pomo() {
     sec=$((min * 60))
     msg="${args:?Example: pomo 15 Take a break}"
 
-	sound="/usr/share/sounds/freedesktop/stereo/complete.oga"
+    sound="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
     while true; do
         date '+%H:%M' && sleep "${sec:?}" 
-		notify-send -u critical -t 0 -a pomo "${msg:?}" 
-		echo "Paused"
-		paplay $sound 
-		read command
-		if [[ $command == 'q' ]];
-		then 
-			break
-		fi
+        notify-send -u critical -t 0 -a pomo "${msg:?}" 
+        echo "Paused"
+        paplay $sound 
+        read command
+        if [[ $command == 'q' ]];
+        then 
+            break
+        fi
     done
 }
 
 function p () {
-  proj_dir=${PROJ_DIR:-~/REPOS}
-  project=$(ls $proj_dir | sk --prompt "Switch to project: ")
-  [ -n "$project" ] && cd $proj_dir/$project
+    proj_dir=${PROJ_DIR:-~/REPOS}
+    project=$(ls $proj_dir | sk --prompt "Switch to project: ")
+    [ -n "$project" ] && cd $proj_dir/$project
+}
+
+function nixify() {
+    if [ ! -e ./.envrc ]; then
+        echo "use nix" > .envrc
+        direnv allow
+    fi
+    if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+        cat > shell.nix <<'EOF'
+with import <nixpkgs> {};
+mkShell {
+    nativeBuildInputs = [ ];
+}
+EOF
+${EDITOR:-vim} shell.nix
+    fi
 }
 
 
 # use kitty kittens
 if [[ "$TERM" == "xterm-kitty" ]]; then
-	alias icat="kitty +kitten icat" 
-	alias ssh="kitty +kitten ssh"
-	alias diff="kitty +kitten diff"
+    alias icat="kitty +kitten icat" 
+    alias ssh="kitty +kitten ssh"
+    alias diff="kitty +kitten diff"
 fi
 
 path+=("${HOME}/.cargo/bin")
