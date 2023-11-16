@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd({
 
 vim.keymap.set({ 'n', 'i', 't' }, '<A-CR>', function()
     vim.cmd.vs()
+    vim.cmd.wincmd('l')
     vim.cmd.terminal()
 end, { silent = true })
 
