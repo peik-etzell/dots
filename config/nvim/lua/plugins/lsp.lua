@@ -112,15 +112,7 @@ return {
                 filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc' },
             })
             local function omnisharp_cmd()
-                if vim.g.use_mason then
-                    return {
-                        'dotnet',
-                        vim.fn.stdpath('data')
-                            .. '/mason/packages/omnisharp/libexec/OmniSharp.dll',
-                    }
-                else
-                    return { 'OmniSharp' }
-                end
+                return { 'OmniSharp' }
             end
             lspconfig.omnisharp.setup({
                 capabilities = default_capabilities,

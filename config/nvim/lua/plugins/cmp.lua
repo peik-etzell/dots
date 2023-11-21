@@ -100,8 +100,6 @@ return {
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-nvim-lsp-signature-help',
             'jose-elias-alvarez/null-ls.nvim',
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
             'p00f/clangd_extensions.nvim',
             -- "rcarriga/cmp-dap",
             'onsails/lspkind.nvim', -- symbols
