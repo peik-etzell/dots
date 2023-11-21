@@ -4,6 +4,8 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt appendhistory
 
+export EDITOR=nvim
+
 # Completion
 autoload -Uz compinit
 compinit
@@ -107,6 +109,9 @@ alias lz='lazygit'
 alias mkdir='mkdir -p'
 alias z='zathura'
 alias o='xdg-open'
+alias nvconf='(cd ~/.config/nvim && nvim)'
+alias swayconf='(cd ~/.config/sway && nvim config)'
+alias nixconf='(cd /etc/nixos && sudo -E nvim)'
 
 # git
 alias status='git status'
@@ -117,6 +122,12 @@ alias pull='git pull'
 alias push='git push'
 alias gdiff='git diff'
 alias ros='~/ros2_devcontainer/start.sh'
+
+function wgetz() {
+    wget -O tmp.zip $1
+    unzip tmp.zip
+    rm tmp.zip
+}
 
 function pomo() {
     arg1=$1
