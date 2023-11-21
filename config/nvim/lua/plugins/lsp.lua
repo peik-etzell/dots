@@ -10,6 +10,12 @@ return {
                     require('neodev').setup({})
                 end,
             },
+            { 'p00f/clangd_extensions.nvim', ft = { 'cpp', 'c' } },
+            {
+                'simrat39/rust-tools.nvim',
+                dependencies = { 'nvim-lua/plenary.nvim' },
+                opts = {},
+            },
         },
         lazy = false,
         config = function()
@@ -63,117 +69,62 @@ return {
                 end,
             })
 
-            if not vim.g.use_mason then
-                local servers = {
-                    'typst_lsp',
-                    'pylsp',
-                    'yamlls',
-                    'texlab',
-                    'openscad_lsp',
-                    'cmake',
-                    'dockerls',
-                    'docker_compose_language_service',
-                    'rnix',
-                    'tsserver',
-                }
-                local lspconfig = require('lspconfig')
-                local default_capabilities =
-                    require('cmp_nvim_lsp').default_capabilities()
-                for _, server in ipairs(servers) do
-                    lspconfig[server].setup({
-                        capabilities = default_capabilities,
-                    })
-                end
-                lspconfig.lua_ls.setup({
-                    capabilities = default_capabilities,
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = 'Replace',
-                            },
-                        },
-                    },
-                })
-                lspconfig.bashls.setup({
-                    capabilities = default_capabilities,
-                    filetypes = { 'sh', 'zsh', 'bash' },
-                })
-                lspconfig.clangd.setup({
-                    capabilities = vim.tbl_extend(
-                        'force',
-                        default_capabilities,
-                        { offsetEncoding = 'utf-8' }
-                    ),
-                    filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc' },
-                })
-                local function omnisharp_cmd()
-                    if vim.g.use_mason then
-                        return {
-                            'dotnet',
-                            vim.fn.stdpath('data')
-                                .. '/mason/packages/omnisharp/libexec/OmniSharp.dll',
-                        }
-                    else
-                        return { 'OmniSharp' }
-                    end
-                end
-                lspconfig.omnisharp.setup({
-                    capabilities = default_capabilities,
-                    cmd = omnisharp_cmd(),
-                })
-            end
-        end,
-    },
-    {
-        'williamboman/mason.nvim',
-        enabled = vim.g.use_mason,
-        lazy = true,
-        config = function()
-            require('mason').setup({
-                install_root_dir = vim.fn.stdpath('data') .. '/mason',
-                ui = {
-                    border = vim.g.border,
-                },
-            })
-        end,
-    },
-    {
-        'williamboman/mason-lspconfig.nvim',
-        enabled = vim.g.use_mason,
-        dependencies = {
-            'hrsh7th/cmp-nvim-lsp',
-            'neovim/nvim-lspconfig',
-            'p00f/clangd_extensions.nvim',
-        },
-        config = function()
+            local servers = {
+                'typst_lsp',
+                'pylsp',
+                'yamlls',
+                'texlab',
+                'openscad_lsp',
+                'cmake',
+                'dockerls',
+                'docker_compose_language_service',
+                'rnix',
+                'tsserver',
+            }
+            local lspconfig = require('lspconfig')
             local default_capabilities =
                 require('cmp_nvim_lsp').default_capabilities()
-            require('mason-lspconfig').setup_handlers({
-                function(server_name)
-                    require('lspconfig')[server_name].setup({
-                        capabilities = default_capabilities,
-                    })
-                end,
-                ['clangd'] = function()
-                    require('lspconfig').clangd.setup({
-                        capabilities = vim.tbl_extend(
-                            'force',
-                            default_capabilities,
-                            { offsetEncoding = 'utf-8' }
-                        ),
-                        filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc' }, -- everything except .proto
-                    })
-                end,
-                ['omnisharp'] = function()
-                    require('lspconfig').omnisharp.setup({
-                        capabilities = default_capabilities,
-                        cmd = {
-                            'dotnet',
-                            vim.fn.stdpath('data')
-                                .. '/mason/packages/omnisharp/libexec/OmniSharp.dll',
+            for _, server in ipairs(servers) do
+                lspconfig[server].setup({
+                    capabilities = default_capabilities,
+                })
+            end
+            lspconfig.lua_ls.setup({
+                capabilities = default_capabilities,
+                settings = {
+                    Lua = {
+                        completion = {
+                            callSnippet = 'Replace',
                         },
-                    })
-                end,
+                    },
+                },
+            })
+            lspconfig.bashls.setup({
+                capabilities = default_capabilities,
+                filetypes = { 'sh', 'zsh', 'bash' },
+            })
+            lspconfig.clangd.setup({
+                capabilities = vim.tbl_extend(
+                    'force',
+                    default_capabilities,
+                    { offsetEncoding = 'utf-8' }
+                ),
+                filetypes = { 'cpp', 'c', 'cuda', 'objcpp', 'objc' },
+            })
+            local function omnisharp_cmd()
+                if vim.g.use_mason then
+                    return {
+                        'dotnet',
+                        vim.fn.stdpath('data')
+                            .. '/mason/packages/omnisharp/libexec/OmniSharp.dll',
+                    }
+                else
+                    return { 'OmniSharp' }
+                end
+            end
+            lspconfig.omnisharp.setup({
+                capabilities = default_capabilities,
+                cmd = omnisharp_cmd(),
             })
         end,
     },
