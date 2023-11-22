@@ -71,7 +71,8 @@ return {
 
             local servers = {
                 'typst_lsp',
-                'pylsp',
+                -- 'pylsp',
+                'pyright',
                 'yamlls',
                 'texlab',
                 'openscad_lsp',

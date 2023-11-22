@@ -49,6 +49,8 @@ return {
                         'log/',
                         'logs/',
                         'devel/',
+                        -- python
+                        '__pycache__/',
                         -- clangd
                         'compile_commands',
                     },
