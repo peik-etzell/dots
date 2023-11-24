@@ -13,6 +13,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' special-dirs 1
 zstyle ':completion:*' squeeze-slashes 1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # Emacs mode
 bindkey -e
