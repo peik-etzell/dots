@@ -27,6 +27,33 @@ smart_gaps on
 focus_on_window_activation focus
 default_border pixel 4
 
+# Default colors from sway(5)
+# ┌──────────────┬─────────┬────────────┬─────────┬───────────┬──────────────┐
+# │    class     │ border  │ background │ text    │ indicator │ child_border │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │background    │ n/a     │ #ffffff    │ n/a     │ n/a       │ n/a          │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │focused       │ #4c7899 │ #285577    │ #ffffff │ #2e9ef4   │ #285577      │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │focused_inac‐ │ #333333 │ #5f676a    │ #ffffff │ #484e50   │ #5f676a      │
+# │tive          │         │            │         │           │              │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │fo‐           │ #333333 │ #5f676a    │ #ffffff │ n/a       │ n/a          │
+# │cused_tab_ti‐ │         │            │         │           │              │
+# │tle           │         │            │         │           │              │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │unfocused     │ #333333 │ #222222    │ #888888 │ #292d2e   │ #222222      │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │urgent        │ #2f343a │ #900000    │ #ffffff │ #900000   │ #900000      │
+# ├──────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+# │placeholder   │ #000000 │ #0c0c0c    │ #ffffff │ #000000   │ #0c0c0c      │
+# └──────────────┴─────────┴────────────┴─────────┴───────────┴──────────────┘
+
+set $black #000000
+set $white #ffffff
+set $yellow #aaaa00
+
+client.focused #4c7899 #285577 #ffffff $yellow $yellow
 font pango:Hack 12
 
 bar swaybar_command waybar
@@ -52,6 +79,10 @@ for_window {
 }
 
 output {
+    HDMI-A-1 {
+		mode 3840x2160@60Hz 
+		pos 1920 0
+    }
 	DP-2 {
 		mode 3840x2160@120Hz 
 		# pos 2160 930
@@ -72,8 +103,8 @@ output {
     }
 	* {
 		adaptive_sync on
-		# render_bit_depth 10
 		bg $dots/wallpapers/webb-pillars-miri.png fill
+		render_bit_depth 10
 	}
 }
 
@@ -84,30 +115,30 @@ mouse_warping container
 seat * hide_cursor 3000
 
 input {
-	"type:keyboard" {
-		xkb_layout custom_us,custom_fi
-		xkb_options grp:win_space_toggle
-		repeat_rate 65
-		repeat_delay 250
-	}
-	"type:touchpad" {
-		dwt disabled
-		drag disabled
-		click_method clickfinger
-		natural_scroll enabled
-		scroll_method two_finger
-		scroll_factor 0.3
-		tap enabled
-		middle_emulation enabled
-		tap_button_map lrm
-		drag enabled
-		# accel_profile flat
-		pointer_accel -0.1
-	 }
-	"type:pointer" {
-		accel_profile flat
-		pointer_accel 0.3
-	}
+    "type:keyboard" {
+        xkb_layout custom_us,custom_fi
+        xkb_options grp:win_space_toggle
+        repeat_rate 65
+        repeat_delay 250
+    }
+    "type:touchpad" {
+        dwt disabled
+        drag disabled
+        click_method clickfinger
+        natural_scroll enabled
+        scroll_method two_finger
+        scroll_factor 0.3
+        tap enabled
+        middle_emulation enabled
+        tap_button_map lrm
+        drag enabled
+        # accel_profile flat
+        pointer_accel -0.1
+    }
+    "type:pointer" {
+        accel_profile flat
+        pointer_accel 0.3
+    }
     "2:10:TPPS/2_Elan_TrackPoint" {
         # accel_profile adaptive
         accel_profile flat
@@ -118,19 +149,27 @@ input {
         dwtp enabled
         tap disabled
     }
+    "2:7:SynPS/2_Synaptics_TouchPad" {
+        pointer_accel 0.2
+        accel_profile adaptive
+    }
 }
 
-bindgesture swipe:right workspace prev 
-bindgesture swipe:left workspace next
+# bindgesture swipe:right workspace prev 
+# bindgesture swipe:left workspace next
 
 # Volume control
-bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > $WOBSOCK
-bindsym --locked XF86AudioLowerVolume exec pamixer -ud 5 && pamixer --get-volume > $WOBSOCK
-bindsym --locked XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+bindsym --locked {
+    XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > $WOBSOCK
+    XF86AudioLowerVolume exec pamixer -ud 5 && pamixer --get-volume > $WOBSOCK
+    XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
 
-# Brightness
-bindsym --locked XF86MonBrightnessDown exec $HOME/dots/scripts/brightness.sh down > $WOBSOCK &
-bindsym --locked XF86MonBrightnessUp exec $HOME/dots/scripts/brightness.sh up > $WOBSOCK &
+    XF86MonBrightnessDown exec $HOME/dots/scripts/brightness.sh down > $WOBSOCK &
+    XF86MonBrightnessUp exec $HOME/dots/scripts/brightness.sh up > $WOBSOCK &
+
+    # Reload the configuration file
+    $mod+Shift+c reload
+}
 
 # Screenshots
 bindsym $mod+Shift+s exec 'grim -g "$(slurp)" - | wl-copy'
@@ -142,9 +181,6 @@ bindsym $mod+d exec $menu
 bindsym $mod+p exec firefox
 
 floating_modifier $mod normal
-
-# Reload the configuration file
-bindsym --locked $mod+Shift+c reload
 
 # Exit sway
 bindsym $mod+m exec swaymsg exit
