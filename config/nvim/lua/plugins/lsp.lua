@@ -81,6 +81,9 @@ return {
                 'docker_compose_language_service',
                 'rnix',
                 'tsserver',
+                'jsonls',
+                'cssls',
+                'html',
             }
             local lspconfig = require('lspconfig')
             local default_capabilities =
