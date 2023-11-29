@@ -84,9 +84,7 @@ return {
                 'jsonls',
                 'cssls',
                 'html',
-                'zls',
             }
-            vim.g.zig_fmt_autosave = 0
             local lspconfig = require('lspconfig')
             local default_capabilities =
                 require('cmp_nvim_lsp').default_capabilities()
@@ -123,6 +121,14 @@ return {
             lspconfig.omnisharp.setup({
                 capabilities = default_capabilities,
                 cmd = omnisharp_cmd(),
+            })
+            vim.g.zig_fmt_autosave = 0
+            lspconfig.zls.setup({
+                capabilities = default_capabilities,
+                settings = {
+                    enable_autofix = false,
+                    enable_build_on_save = true,
+                },
             })
         end,
     },
