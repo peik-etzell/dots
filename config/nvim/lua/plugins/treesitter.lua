@@ -10,7 +10,7 @@ return {
             auto_install = true,
             highlight = {
                 enable = true,
-                disable = { 'latex', 'tex' },
+                disable = { 'latex', 'tex', 'markdown' },
             },
             indent = {
                 enable = true,
