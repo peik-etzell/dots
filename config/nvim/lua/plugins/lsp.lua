@@ -84,7 +84,9 @@ return {
                 'jsonls',
                 'cssls',
                 'html',
+                'zls',
             }
+            vim.g.zig_fmt_autosave = 0
             local lspconfig = require('lspconfig')
             local default_capabilities =
                 require('cmp_nvim_lsp').default_capabilities()
