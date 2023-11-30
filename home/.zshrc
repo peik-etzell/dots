@@ -111,8 +111,8 @@ alias mkdir='mkdir -p'
 alias z='zathura'
 alias zz='zathura $(fd -e pdf | fzf)'
 alias o='xdg-open'
-alias nvconf='(cd ~/.config/nvim && nvim)'
-alias swayconf='(cd ~/.config/sway && nvim config)'
+alias nvconf='(cd ~/dots/config/nvim && nvim)'
+alias swayconf='(cd ~/dots/config/sway && nvim config)'
 alias nixconf='(cd /etc/nixos && sudo -E nvim)'
 
 # git
@@ -131,35 +131,6 @@ function wgetz() {
     rm tmp.zip
 }
 
-function pomo() {
-    arg1=$1
-    shift
-    args="$*"
-
-    min=${arg1:?Example: pomo 15 Take a break}
-    sec=$((min * 60))
-    msg="${args:?Example: pomo 15 Take a break}"
-
-    sound="/usr/share/sounds/freedesktop/stereo/complete.oga"
-
-    while true; do
-        date '+%H:%M' && sleep "${sec:?}" 
-        notify-send -u critical -t 0 -a pomo "${msg:?}" 
-        echo "Paused"
-        paplay $sound 
-        read command
-        if [[ $command == 'q' ]];
-        then 
-            break
-        fi
-    done
-}
-
-function p () {
-    proj_dir=${PROJ_DIR:-~/REPOS}
-    project=$(ls $proj_dir | sk --prompt "Switch to project: ")
-    [ -n "$project" ] && cd $proj_dir/$project
-}
 
 function nixify() {
     if [ ! -e ./.envrc ]; then
