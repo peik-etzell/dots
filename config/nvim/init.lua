@@ -17,7 +17,7 @@ let.maplocalleader = ','
 -- let.border = 'rounded'
 let.border = nil
 
-set.mouse = nil
+-- set.mouse = nil
 set.number = true
 set.relativenumber = false
 set.tabstop = 4
@@ -27,7 +27,6 @@ set.timeoutlen = 500
 set.undofile = true
 set.wrap = false
 set.list = true
-set.listchars:append('eol:↴')
 set.title = true
 set.cursorline = true
 set.scrolloff = 10 -- Scroll offset
@@ -39,9 +38,6 @@ set.smartcase = true
 set.foldlevel = 99
 set.foldmethod = 'expr'
 set.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.cmd([[
-highlight Folded guibg=black guifg=lightgreen
-]])
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
