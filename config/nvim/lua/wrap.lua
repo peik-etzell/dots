@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
         vim.opt_local.linebreak = true
         vim.opt_local.breakindent = true
         vim.opt_local.colorcolumn = nil
+        vim.opt_local.cursorline = false
         for _, key in pairs({ 'j', 'k', '$', '0' }) do
             vim.keymap.set({ 'n', 'v' }, key, function()
                 vim.cmd.normal('g' .. key)
