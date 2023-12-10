@@ -4,7 +4,7 @@
     "output": "DP-2",
     "position": "left",
     "spacing": 15,
-    "modules-left": ["clock", "cpu", "memory", "temperature"],
+    "modules-left": ["clock"],
     "modules-center": ["wlr/workspaces", "sway/workspaces"],
     "modules-right": ["tray", "pulseaudio", "network", "battery"],
     "wlr/workspaces": {
@@ -67,25 +67,6 @@
       "timezone": "Europe/Helsinki",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-      "format": "{usage}% ",
-      "tooltip": false
-    },
-    "memory": {
-      "format": "{}% "
-    },
-    "temperature": {
-      "thermal-zone": 2,
-      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      "critical-threshold": 80,
-      "format-critical": "{temperatureC}°C {icon}",
-      "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""]
-    },
-    "backlight": {
-      "format": "{percent}% {icon}",
-      "format-icons": ["", ""]
     },
     "battery": {
       "states": {
@@ -136,7 +117,7 @@
     "output": "DP-3",
     "position": "right",
     "spacing": 15,
-    "modules-left": ["clock", "cpu", "memory", "temperature"],
+    "modules-left": ["clock"],
     "modules-center": ["wlr/workspaces", "sway/workspaces"],
     "modules-right": ["tray", "pulseaudio", "network", "battery"],
     "wlr/workspaces": {
@@ -199,25 +180,6 @@
       "timezone": "Europe/Helsinki",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-      "format": "{usage}% ",
-      "tooltip": false
-    },
-    "memory": {
-      "format": "{}% "
-    },
-    "temperature": {
-      "thermal-zone": 2,
-      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      "critical-threshold": 80,
-      "format-critical": "{temperatureC}°C {icon}",
-      "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""]
-    },
-    "backlight": {
-      "format": "{percent}% {icon}",
-      "format-icons": ["", ""]
     },
     "battery": {
       "states": {
@@ -331,25 +293,6 @@
       "timezone": "Europe/Helsinki",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-      "format": "{usage}% ",
-      "tooltip": false
-    },
-    "memory": {
-      "format": "{}% "
-    },
-    "temperature": {
-      "thermal-zone": 2,
-      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      "critical-threshold": 80,
-      "format-critical": "{temperatureC}°C {icon}",
-      "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""]
-    },
-    "backlight": {
-      "format": "{percent}% {icon}",
-      "format-icons": ["", ""]
     },
     "battery": {
       "states": {
