@@ -35,9 +35,9 @@ set.ignorecase = true
 set.smartcase = true
 
 -- folding
-set.foldlevel = 99
 set.foldmethod = 'expr'
 set.foldexpr = 'nvim_treesitter#foldexpr()'
+set.foldenable = false
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
@@ -53,6 +53,7 @@ require('window-management')
 require('wrap')
 require('fix_comment_strings')
 require('terminal')
+require('termdebug')
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then

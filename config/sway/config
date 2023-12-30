@@ -150,8 +150,9 @@ input {
         tap disabled
     }
     "2:7:SynPS/2_Synaptics_TouchPad" {
-        pointer_accel 0.2
+        pointer_accel 0.3
         accel_profile adaptive
+        tap disabled
     }
 }
 

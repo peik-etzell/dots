@@ -58,7 +58,7 @@ return {
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
-        lazy = true,
+        lazy = false,
         config = function()
             require('treesitter-context').setup({
                 enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
