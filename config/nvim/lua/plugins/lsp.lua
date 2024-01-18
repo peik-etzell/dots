@@ -79,11 +79,12 @@ return {
                 'cmake',
                 'dockerls',
                 'docker_compose_language_service',
-                'rnix',
+                'nil_ls',
                 'tsserver',
                 'jsonls',
                 'cssls',
                 'html',
+                'marksman',
             }
             local lspconfig = require('lspconfig')
             local default_capabilities =
