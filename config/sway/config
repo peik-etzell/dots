@@ -12,7 +12,7 @@ set $down j
 set $up k
 set $right l
 
-set $term kitty
+set $term foot
 set $dots $HOME/dots
 
 set $menu fuzzel -w 32 --show-actions -f "SF Mono:weight=thin:size=12"
@@ -64,6 +64,7 @@ exec {
     sway-audio-idle-inhibit
     mako
     udiskie
+    kanshi
 }
 
 # zoom
@@ -101,10 +102,12 @@ output {
     'Chimei Innolux Corporation 0x15E8 Unknown' {
         subpixel rgb
     }
+    # Slim 7 LCD
+    'AU Optronics 0x683D Unknown' {
+    }
 	* {
 		adaptive_sync on
 		bg $dots/wallpapers/webb-pillars-miri.png fill
-		render_bit_depth 10
 	}
 }
 
