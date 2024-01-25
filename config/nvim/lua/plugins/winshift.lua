@@ -2,12 +2,8 @@ return {
     {
         'sindrets/winshift.nvim',
         lazy = false,
+        opts = { keymaps = { disable_defaults = true } },
         config = function()
-            require('winshift').setup({
-                keymaps = {
-                    disable_defaults = true,
-                },
-            })
             local function map_s_alt(key, dir)
                 vim.keymap.set(
                     { 'i', 'n', 't' },
