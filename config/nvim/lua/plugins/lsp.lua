@@ -1,3 +1,9 @@
+local function indent_pure_vim()
+    local cursor_pos = vim.fn.getcurpos()
+    vim.cmd.normal('gg=G')
+    vim.fn.setpos('.', cursor_pos)
+end
+
 return {
     {
         'neovim/nvim-lspconfig',
@@ -52,20 +58,14 @@ return {
                         vim.diagnostic.open_float({ border = vim.g.border })
                     end)
 
-                    if
-                        client.server_capabilities.documentFormattingProvider
-                    then
-                        set_keymap('<leader>s', function()
-                            vim.lsp.buf.format({
-                                async = true,
-                                filter = function(server)
-                                    return server.name ~= 'lua_ls'
-                                end,
-                            })
-                        end)
-                    else
-                        set_keymap('<leader>s', 'gg=G')
-                    end
+                    set_keymap('<leader>s', function()
+                        vim.lsp.buf.format({
+                            async = true,
+                            filter = function(server)
+                                return server.name ~= 'lua_ls'
+                            end,
+                        })
+                    end)
                 end,
             })
 
