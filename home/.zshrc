@@ -95,7 +95,24 @@ stty -ixon
 ## To fix Matlab rendering
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# ===========================
+# =========== FZF ===========
+# ===========================
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
 export FZF_DEFAULT_COMMAND="find -L"
+# CTRL-/ to toggle small preview window to see the full command
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+
 
 alias tcn='mv --force -t ~/.local/share/Trash/files/'
 
