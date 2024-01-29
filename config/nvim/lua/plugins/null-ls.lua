@@ -25,6 +25,8 @@ return {
                     builtins.formatting.shfmt,
                     builtins.diagnostics.shellcheck,
                     builtins.code_actions.shellcheck,
+                    builtins.formatting.beautysh,
+                    builtins.diagnostics.zsh,
 
                     -- Protobuf
                     builtins.diagnostics.buf,
