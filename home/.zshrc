@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export GPG_TTY=$(tty)
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
@@ -36,18 +38,18 @@ key[PageDown]="${terminfo[knp]}"
 key[Shift-Tab]="${terminfo[kcbt]}"
 
 # setup key accordingly
-[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
-[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
-[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
-[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
-[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
-[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
-[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
-[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
-[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
-[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
-[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
-[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+[ -n "${key[Home]}"      ] && bindkey -- "${key[Home]}"       beginning-of-line
+[ -n "${key[End]}"       ] && bindkey -- "${key[End]}"        end-of-line
+[ -n "${key[Insert]}"    ] && bindkey -- "${key[Insert]}"     overwrite-mode
+[ -n "${key[Backspace]}" ] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[ -n "${key[Delete]}"    ] && bindkey -- "${key[Delete]}"     delete-char
+[ -n "${key[Up]}"        ] && bindkey -- "${key[Up]}"         up-line-or-history
+[ -n "${key[Down]}"      ] && bindkey -- "${key[Down]}"       down-line-or-history
+[ -n "${key[Left]}"      ] && bindkey -- "${key[Left]}"       backward-char
+[ -n "${key[Right]}"     ] && bindkey -- "${key[Right]}"      forward-char
+[ -n "${key[PageUp]}"    ] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[ -n "${key[PageDown]}"  ] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[ -n "${key[Shift-Tab]}" ] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
@@ -64,8 +66,8 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-[[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
-[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+[ -n "${key[Up]}"   ] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
+[ -n "${key[Down]}" ] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
 
 
@@ -125,19 +127,18 @@ alias push='git push'
 alias gdiff='git diff'
 alias ros='~/ros2_devcontainer/start.sh'
 
-function wgetz() {
+wgetz() {
     wget -O tmp.zip $1
     unzip tmp.zip
     rm tmp.zip
 }
 
-
-function nixify() {
+nixify() {
     if [ ! -e ./.envrc ]; then
         echo "use nix" > .envrc
         direnv allow
     fi
-    if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+    if [ ! -e shell.nix ] && [ ! -e default.nix ]; then
         cat > shell.nix <<'EOF'
 with import <nixpkgs> {};
 mkShell {
@@ -150,8 +151,8 @@ ${EDITOR:-vim} shell.nix
 
 
 # use kitty kittens
-if [[ "$TERM" == "xterm-kitty" ]]; then
-    alias icat="kitty +kitten icat" 
+if [ "$TERM" = "xterm-kitty" ]; then
+    alias icat="kitty +kitten icat"
     alias ssh="kitty +kitten ssh"
     alias diff="kitty +kitten diff"
 fi
