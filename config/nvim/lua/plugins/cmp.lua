@@ -1,6 +1,7 @@
 return {
     {
         'hrsh7th/nvim-cmp',
+        event = 'VeryLazy',
         config = function()
             -- Make runtime files discoverable to the server.
             local runtime_path = vim.split(package.path, ';')

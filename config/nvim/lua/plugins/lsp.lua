@@ -23,7 +23,7 @@ return {
                 opts = {},
             },
         },
-        lazy = false,
+        event = 'VeryLazy',
         config = function()
             vim.diagnostic.config({ virtual_text = false })
             vim.lsp.handlers['textDocument/hover'] =

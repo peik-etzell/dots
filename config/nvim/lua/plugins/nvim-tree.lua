@@ -1,7 +1,7 @@
 return {
     {
         'nvim-tree/nvim-tree.lua',
-        lazy = false,
+        event = 'VeryLazy',
         config = function()
             require('nvim-tree').setup({
                 update_focused_file = {

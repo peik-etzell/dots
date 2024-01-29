@@ -1,7 +1,7 @@
 return {
     {
         'sindrets/winshift.nvim',
-        lazy = false,
+        event = 'VeryLazy',
         opts = { keymaps = { disable_defaults = true } },
         config = function()
             local function map_s_alt(key, dir)

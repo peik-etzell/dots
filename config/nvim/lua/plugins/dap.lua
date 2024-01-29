@@ -2,6 +2,7 @@ return {
     {
         'rcarriga/nvim-dap-ui',
         ft = { 'c', 'cpp', 'rust', 'python', 'csharp' },
+        event = 'VeryLazy',
         dependencies = {
             {
                 'mfussenegger/nvim-dap',
@@ -102,7 +103,7 @@ return {
                     vim.keymap.set({ 'n' }, '<s-<F11>>', dap.step_out, opts)
                 end,
             },
-            { 'mfussenegger/nvim-dap-python', lazy = false },
+            { 'mfussenegger/nvim-dap-python', event = 'VeryLazy' },
         },
         config = function()
             local dapui = require('dapui')
@@ -201,6 +202,7 @@ return {
             'mfussenegger/nvim-dap',
             'nvim-treesitter/nvim-treesitter',
         },
+        event = 'VeryLazy',
         config = function()
             require('nvim-dap-virtual-text').setup({
                 -- enable this plugin (the default)
@@ -268,6 +270,7 @@ return {
             'mfussenegger/nvim-dap',
             'nvim-treesitter/nvim-treesitter',
         },
+        event = 'VeryLazy',
         config = function()
             require('nvim-dap-repl-highlights').setup()
             require('nvim-treesitter.configs').setup({
