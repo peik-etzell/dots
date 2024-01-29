@@ -119,10 +119,10 @@ alias tcn='mv --force -t ~/.local/share/Trash/files/'
 alias e="$EDITOR"
 alias rvim='sudo -E $EDITOR'
 
-alias l='ls -lh --color'
+alias l='ls -1 --color'
 alias ll='ls -lh --color'
 alias ls='ls --color'
-alias lsa='ls -lah --color'
+alias lsa='ls -lAh --color'
 alias wifi='nmcli dev wifi'
 alias bl='bluetoothctl'
 alias lz='lazygit'
@@ -132,7 +132,6 @@ alias zz='zathura $(fd -e pdf | fzf)'
 alias o='xdg-open'
 alias nvconf='(cd ~/dots/config/nvim && nvim)'
 alias swayconf='(cd ~/dots/config/sway && nvim config)'
-alias nixconf='(cd /etc/nixos && sudo -E nvim)'
 
 # git
 alias status='git status'
@@ -157,9 +156,11 @@ nixify() {
     fi
     if [ ! -e shell.nix ] && [ ! -e default.nix ]; then
         cat > shell.nix <<'EOF'
-with import <nixpkgs> {};
-mkShell {
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.mkShell {
     nativeBuildInputs = [ ];
+    shellHook = ''
+    '';
 }
 EOF
 ${EDITOR:-vim} shell.nix
