@@ -1,10 +1,26 @@
 #!/usr/bin/env zsh
 
 export GPG_TTY=$(tty)
+
+### HISTORY
 export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=50000
+export SAVEHIST=50000
 setopt appendhistory
+# Share history between all sessions:
+setopt SHARE_HISTORY
+# Dont record an entry that was just recorded again:
+setopt HIST_SAVE_NO_DUPS
+# Do not display a line previously found:
+setopt HIST_FIND_NO_DUPS
+# Expire duplicate entries first when trimming history:
+setopt HIST_EXPIRE_DUPS_FIRST
+# Dont record an entry that was just recorded again:
+setopt HIST_IGNORE_DUPS
+# Delete old recorded entry if new entry is a duplicate:
+setopt HIST_IGNORE_ALL_DUPS
+# Dont record an entry starting with a space:
+setopt HIST_IGNORE_SPACE
 
 export EDITOR=nvim
 
