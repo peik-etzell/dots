@@ -16,7 +16,10 @@ return {
                     require('neodev').setup({})
                 end,
             },
-            { 'p00f/clangd_extensions.nvim', ft = { 'cpp', 'c' } },
+            {
+                'https://git.sr.ht/~p00f/clangd_extensions.nvim',
+                ft = { 'cpp', 'c' },
+            },
             {
                 'simrat39/rust-tools.nvim',
                 dependencies = { 'nvim-lua/plenary.nvim' },
@@ -44,7 +47,7 @@ return {
                         vim.lsp.inlay_hint(event.buf, true)
                     end
 
-                    local set_keymap = function(lhs, rhs)
+                    local function set_keymap(lhs, rhs)
                         vim.keymap.set(
                             'n',
                             lhs,
@@ -63,6 +66,7 @@ return {
                             async = true,
                             filter = function(server)
                                 return server.name ~= 'lua_ls'
+                                    and server.name ~= 'tsserver'
                             end,
                         })
                     end)
@@ -130,6 +134,19 @@ return {
                     enable_autofix = false,
                     enable_build_on_save = true,
                 },
+            })
+
+            lspconfig.denols.setup({
+                capabilities = default_capabilities,
+                root_dir = lspconfig.util.root_pattern(
+                    'deno.json',
+                    'deno.jsonc'
+                ),
+            })
+            lspconfig.tsserver.setup({
+                capabilities = default_capabilities,
+                root_dir = lspconfig.util.root_pattern('package.json'),
+                single_file_support = false,
             })
         end,
     },
