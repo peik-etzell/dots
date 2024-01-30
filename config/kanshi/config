@@ -6,3 +6,8 @@ profile {
     output 'AU Optronics 0x683D Unknown' mode 1920x1080 position 960,2160
     output 'Acer Technologies XV273K 0x00009690' mode 3840x2160 position 0,0
 }
+
+profile {
+    output 'Acer Technologies XV273K 0x00009690' mode 3840x2160 position 0,0
+    output 'Acer Technologies XV273K 0x0000F219' mode 3840x2160 position 3840,-930 transform 270
+}
