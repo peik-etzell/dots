@@ -183,9 +183,8 @@ ${EDITOR:-vim} shell.nix
     fi
 }
 
-
 # use kitty kittens
-if [ "$TERM" = "xterm-kitty" ]; then
+if [ "$TERM" = "xterm-kitty" && ! "$SSH_CLIENT" ]; then
     alias icat="kitty +kitten icat"
     alias ssh="kitty +kitten ssh"
     alias diff="kitty +kitten diff"
