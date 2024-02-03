@@ -1,0 +1,35 @@
+let mapleader = " "
+" Leader bindings
+nnoremap <leader>g :vsc Edit.FindinFiles<CR>
+nnoremap <leader>f :vsc Edit.GoToFile<CR>
+nnoremap <leader>s :vsc Edit.FormatDocument<CR> | :w<CR>
+noremap <leader>/ :vsc Edit.ToggleLineComment<CR>
+
+nnoremap K :vsc Edit.QuickInfo<CR>
+
+" Refresh config
+nnoremap <leader>rs :source ~/.vsvimrc<CR>
+" Rename
+nnoremap <leader>rn :vsc Refactor.Rename<CR>
+
+" Fix <c-t>
+nnoremap <C-t> :vsc View.NavigateBackward<CR>
+
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+inoremap <A-h> <Esc><C-w>h
+inoremap <A-j> <Esc><C-w>j
+inoremap <A-k> <Esc><C-w>k
+inoremap <A-l> <Esc><C-w>l
+
+nnoremap <C-A-h> 5<C-w><
+nnoremap <C-A-j> 5<C-w>>
+nnoremap <C-A-k> 5<C-w>+
+nnoremap <C-A-l> 5<C-w>-
+
+" Close file
+nnoremap <A-S-q> :q
+nnoremap <A-S-q> <Esc>:q<CR>
+" Edit.ShowCodeLensMenu
