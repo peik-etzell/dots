@@ -168,8 +168,8 @@ wgetz() {
 nixify() {
     if [ ! -e ./.envrc ]; then
         echo "use nix" > .envrc
-        direnv allow
     fi
+    direnv allow
     if [ ! -e shell.nix ] && [ ! -e default.nix ]; then
         cat > shell.nix <<'EOF'
 { pkgs ? import <nixpkgs> {} }:
