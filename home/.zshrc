@@ -146,7 +146,7 @@ alias mkdir='mkdir -p'
 alias z='zathura'
 alias zz='zathura $(fd -e pdf | fzf)'
 alias o='xdg-open'
-alias nvconf='(cd ~/dots/config/nvim && nvim)'
+alias nvconf='(cd ~/nvim-config && nvim)'
 alias swayconf='(cd ~/dots/config/sway && nvim config)'
 
 # git
@@ -168,8 +168,8 @@ wgetz() {
 nixify() {
     if [ ! -e ./.envrc ]; then
         echo "use nix" > .envrc
-        direnv allow
     fi
+    direnv allow
     if [ ! -e shell.nix ] && [ ! -e default.nix ]; then
         cat > shell.nix <<'EOF'
 { pkgs ? import <nixpkgs> {} }:
