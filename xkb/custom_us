@@ -4,7 +4,7 @@ xkb_symbols "us" {
 
     include "us(basic)"
     include "kpdl(comma)"
-    include "level3(caps_switch)"
+    include "level3(switch)"
 
     key <AD08> { [  i,               I,                Home,                  Home                  ] };
     key <AD09> { [  o,               O,                End,                   End                   ] };
