@@ -3,6 +3,7 @@ exec dbus-update-activation-environment --systemd SWAYSOCK DISPLAY WAYLAND_DISPL
 
 # https://www.reddit.com/r/swaywm/comments/uxqt8c/how_do_i_start_xdgdesktopportalwlr_properly/ia04y15/
 exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+exec_always systemctl --user start sway-session.target
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -145,7 +146,7 @@ input {
     "2:10:TPPS/2_Elan_TrackPoint" {
         # accel_profile adaptive
         accel_profile flat
-        pointer_accel 0
+        pointer_accel 0.2
     }
     "1739:0:Synaptics_TM3512-010" {
         dwt disabled
