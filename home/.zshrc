@@ -98,10 +98,19 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats '%F{red}[%f%b%F{red}%u%c]'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
+if [ $SSH_CLIENT ]; then
+    # Prompt
+    ssh_msg=" %F{red}[%fSSH%F{red}]"
+
+    if [ $TERM = "foot" ]; then
+        export TERM=xterm-256color
+    fi
+fi
+
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{yellow}%m %F{green}%~ %f
-%# '
+PS1="%F{yellow}%m$ssh_msg %F{green}%~ %f
+%# "
 RPROMPT='$vcs_info_msg_0_'
 
 ## get back ctrl-s and ctrl-q
@@ -136,6 +145,7 @@ alias e="$EDITOR"
 alias rvim='sudo -E $EDITOR'
 
 alias l='ls -1 --color'
+alias la='ls -1A --color'
 alias ll='ls -lh --color'
 alias ls='ls --color'
 alias lsa='ls -lAh --color'
@@ -148,6 +158,8 @@ alias zz='zathura $(fd -e pdf | fzf)'
 alias o='xdg-open'
 alias nvconf='(cd ~/dots/config/nvim && nvim)'
 alias swayconf='(cd ~/dots/config/sway && nvim config)'
+
+alias weather='curl v2d.wttr.in'
 
 # git
 alias status='git status'
