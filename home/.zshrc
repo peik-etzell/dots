@@ -181,6 +181,18 @@ pkgs.mkShell {
 EOF
 ${EDITOR:-vim} shell.nix
     fi
+
+}
+
+flakify() {
+  if [ ! -e flake.nix ]; then
+    nix flake new -t github:nix-community/nix-direnv .
+    ${EDITOR:-vim} flake.nix
+  fi
+  if [ ! -e .envrc ]; then
+    echo "use flake" > .envrc
+    direnv allow
+  fi
 }
 
 # use kitty kittens
