@@ -98,10 +98,14 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats '%F{red}[%f%b%F{red}%u%c]'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
+if [ $SSH_CLIENT ]; then
+    ssh_msg=" %F{red}[%fSSH%F{red}]"
+fi
+
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%F{yellow}%m %F{green}%~ %f
-%# '
+PS1="%F{yellow}%m$ssh_msg %F{green}%~ %f
+%# "
 RPROMPT='$vcs_info_msg_0_'
 
 ## get back ctrl-s and ctrl-q
