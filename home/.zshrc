@@ -140,6 +140,7 @@ alias e="$EDITOR"
 alias rvim='sudo -E $EDITOR'
 
 alias l='ls -1 --color'
+alias la='ls -1A --color'
 alias ll='ls -lh --color'
 alias ls='ls --color'
 alias lsa='ls -lAh --color'
