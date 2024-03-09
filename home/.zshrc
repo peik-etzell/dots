@@ -99,7 +99,12 @@ zstyle ':vcs_info:git:*' formats '%F{red}[%f%b%F{red}%u%c]'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 if [ $SSH_CLIENT ]; then
+    # Prompt
     ssh_msg=" %F{red}[%fSSH%F{red}]"
+
+    if [ $TERM = "foot" ]; then
+        export TERM=xterm-256color
+    fi
 fi
 
 precmd() { vcs_info }
