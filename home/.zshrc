@@ -154,6 +154,8 @@ alias o='xdg-open'
 alias nvconf='(cd ~/dots/config/nvim && nvim)'
 alias swayconf='(cd ~/dots/config/sway && nvim config)'
 
+alias weather='curl v2d.wttr.in'
+
 # git
 alias status='git status'
 alias add='git add'
