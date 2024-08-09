@@ -1,4 +1,13 @@
+
 let mapleader = " "
+
+set ignorecase
+set smartcase
+set scrolloff=10
+" set sidescrolloff=10
+set expandtab
+
+
 " Leader bindings
 nnoremap <leader>g :vsc Edit.FindinFiles<CR>
 nnoremap <leader>f :vsc Edit.GoToFile<CR>
@@ -14,6 +23,7 @@ nnoremap <leader>rn :vsc Refactor.Rename<CR>
 
 " Fix <c-t>
 nnoremap <C-t> :vsc View.NavigateBackward<CR>
+" nnoremap <C-]> :vsc View.NavigateForward<CR><ESC>
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
