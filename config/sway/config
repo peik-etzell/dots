@@ -120,7 +120,7 @@ seat * hide_cursor 3000
 
 input {
     "type:keyboard" {
-        xkb_layout custom_us,custom_fi
+        xkb_layout us-custom,fi-custom
         xkb_options grp:win_space_toggle
         repeat_rate 65
         repeat_delay 250
