@@ -4,6 +4,3 @@
 [submodule "private"]
 	path = private
 	url = git@github.com:peik-etzell/dots_private.git
-[submodule "config/nvim"]
-	path = config/nvim
-	url = git@github.com:peik-etzell/nvim-config.git
